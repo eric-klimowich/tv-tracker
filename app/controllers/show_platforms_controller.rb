@@ -1,0 +1,2 @@
+class ShowPlatformsController < ApplicationController
+end
