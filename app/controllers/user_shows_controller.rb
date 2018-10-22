@@ -2,7 +2,8 @@ class UserShowsController < ApplicationController
   before_action :find_user_shows, only: [:show, :edit, :update, :destroy]
 
   def index
-    @user_shows = UserShow.all
+    @user = User.find(1)
+    @user_shows = @user.shows
 
   end
 

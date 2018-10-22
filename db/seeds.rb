@@ -21,3 +21,5 @@ Show.create(title: "The Office", seasons: 9, status: false, lead_actor: "Steve C
 Show.create(title: "WestWorld", seasons: 2, status: true, lead_actor: "Evan Rachel Woods", genre: "sci-fi", description: "all the robots")
 
 UserShow.create(user_id: 1, show_id: 1, status: "watching", season: 2, episode: 3)
+UserShow.create(user_id: 2, show_id: 2, status: "watched", season: 2, episode: 12)
+UserShow.create(user_id: 1, show_id: 2, status: "not started", season: 1, episode: 1)

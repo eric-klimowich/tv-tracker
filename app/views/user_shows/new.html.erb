@@ -1,0 +1,15 @@
+<h1>Add show here</h1>
+
+<%= form_for @user_show do |f| %>
+  <%= f.label :user_id %>
+  <%= f.collection_select(:user_id, User.all, :id, :first_name) %>
+  <%= f.label :show_id %>
+  <%= f.collection_select(:show_id, Show.all, :id, :title) %>
+  <%= f.label :status %>
+  <%= f.text_field :status %>
+  <%= f.label :season %>
+  <%= f.number_field :season %>
+  <%= f.label :episode %>
+  <%= f.number_field :episode %>
+  <%= f.submit %>
+<% end %>
