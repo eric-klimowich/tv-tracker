@@ -1,0 +1,6 @@
+<h1> <%= @platform.name %> </h1>
+
+<h3> <%= number_to_currency(@platform.subscription_cost, unit: "$")%> </h3>
+
+
+<%= button_to "All Platforms", platforms_path, method: :get %>
