@@ -2,7 +2,7 @@ class ShowsController < ApplicationController
   before_action :find_show, only: [:show, :edit, :update, :destroy]
 
   def index
-    @shows = Show.all
+    @shows = Show.search(params[:search])
   end
 
   def show
@@ -34,7 +34,7 @@ class ShowsController < ApplicationController
   private
 
   def show_params
-    params.require(:show).permit(:title, :seasons, :status, :lead_actor, :genre, :description)
+    params.require(:show).permit(:title, :seasons, :status, :lead_actor, :genre, :description, :search)
   end
 
   def find_show
