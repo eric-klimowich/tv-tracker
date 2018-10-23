@@ -3,16 +3,14 @@ class ReviewsController < ApplicationController
 
   def new
     @review = Review.new
-    @show = flash[:show_to_review]
-    review_params[:show_id] = @show["id"]
-    # @review = Review.create(user_id: @user.id, show_id: @id)
-    # flash[:this_review] = @review
+    id = flash[:show_id_to_review]
+    flash[:show_id] = id
   end
 
   def create
-    byebug
-    @review = flash[:this_review]
     @review = Review.create(review_params)
+    @review.show_id = flash[:show_id]
+    @review.update(user_id: @user.id)
     redirect_to user_shows_path
   end
 

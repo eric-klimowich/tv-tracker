@@ -8,7 +8,7 @@ class UserShowsController < ApplicationController
 
   def show
     @show = @user_show.show
-    flash[:show_to_review] = @show
+    flash[:show_id_to_review] = @show.id
   end
 
   def new
