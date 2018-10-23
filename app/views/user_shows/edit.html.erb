@@ -1,0 +1,28 @@
+<h1><%= @show.title %></h1>
+
+<%= form_for @user_show do |f| %>
+  <%= @user.first_name %>'s <%= f.label :status %>
+  <%= f.text_field :status %>
+  <%= f.label :season %>
+  <%= f.number_field :season %>
+  <%= f.label :episode %>
+  <%= f.number_field :episode %>
+  <%= f.submit %>
+<% end %>
+<br>
+About this show:
+<h3> Seasons: <%= @show.seasons %> </h3>
+Genre: <%= @show.genre %>
+</br>
+Starring: <%= @show.lead_actor %> <br>
+Status:
+<% if @show.status %>
+  It's still going!
+<% else  %>
+  Cancelled
+<% end %><br>
+Description: <%= @show.description %>
+<br><br>
+
+<%= button_to "Delete", user_show_path(@user_show), method: :delete %>
+<%= button_to "All My Shows", user_shows_path, method: :get %>

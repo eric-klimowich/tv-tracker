@@ -1,18 +1,19 @@
 class UserShowsController < ApplicationController
-  before_action :find_user_shows, only: [:show, :edit, :update, :destroy]
+  before_action :find_user_show, only: [:show, :edit, :update, :destroy]
+  before_action :find_user
 
   def index
-    @user = User.find(1)
-    @user_shows = @user.shows
-
+    @saved_shows = @user.shows
   end
 
   def show
-
+    @show = @user_show.show
   end
 
   def new
     @user_show = UserShow.new
+    @users = User.all
+    @shows = Show.all
   end
 
   def create
@@ -21,7 +22,7 @@ class UserShowsController < ApplicationController
   end
 
   def edit
-
+    @show = @user_show.show
   end
 
   def update
@@ -36,12 +37,16 @@ class UserShowsController < ApplicationController
 
   private
 
-  def find_user_shows
+  def find_user_show
     @user_show = UserShow.find_by(id: params[:id])
   end
 
   def user_show_params
     params.require(:user_show).permit(:user_id, :show_id, :status, :season, :episode)
+  end
+
+  def find_user
+    @user = User.find(1)
   end
 
 end

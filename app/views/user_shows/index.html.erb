@@ -1,5 +1,8 @@
-<h1>Your Shows</h1>
+<h1><%= @user.first_name %>'s Shows</h1>
 
-<% @user_shows.each do |show| %>
-  <%= link_to show.title, show %><br>
+<% @saved_shows.each do |show| %>
+  <% @user_show = UserShow.find_by(show_id: show.id, user_id: @user.id) %>
+  <%= link_to show.title, user_show_path(@user_show) %><br>
 <% end %>
+<br>
+<%= button_to "Add a Show", new_user_show_path(@user_show), method: :get %>

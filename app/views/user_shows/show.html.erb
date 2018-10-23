@@ -1,0 +1,13 @@
+<h1><%= @user_show.show.title %></h1>
+
+<%= @user.first_name %>'s Viewing Status: <%= @user_show.status %><br>
+<% if @user_show.status == "watching" %>
+  Season: <%= @user_show.season %><br>
+  Episode: <%= @user_show.episode %>
+<% elsif @user_show.status == "watched"%>
+  You watched all <%= @user_show.show.seasons %> seasons!
+<% else %>
+  This show has <%= @user_show.show.seasons %> seasons.
+<% end %>
+<br>
+<%= button_to "Edit", edit_user_show_path(@user_show), method: :get %>
