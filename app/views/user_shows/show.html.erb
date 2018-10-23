@@ -11,3 +11,4 @@
 <% end %>
 <br>
 <%= button_to "Edit", edit_user_show_path(@user_show), method: :get %>
+<%= button_to "Review #{@user_show.show.title}", new_review_path, method: :get %>

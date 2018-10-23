@@ -1,0 +1,9 @@
+<h1><%= @user.first_name %>'s Review for </h1>
+
+<%= form_for @review do |f| %>
+  <%= f.label :rating %>
+  <%= f.number_field :rating %>
+  <%= f.label :content %>
+  <%= f.text_area :content %>
+  <%= f.submit %>
+<% end %>
