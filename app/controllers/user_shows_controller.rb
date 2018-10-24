@@ -8,6 +8,7 @@ class UserShowsController < ApplicationController
 
   def show
     @show = @user_show.show
+    @review = Review.find_by(user_id: @user.id, show_id: @show.id) 
     flash[:show_id_to_review] = @show.id
   end
 
