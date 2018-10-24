@@ -6,6 +6,8 @@ class ShowsController < ApplicationController
   end
 
   def show
+    @reviews = []
+    @reviews << Review.find_by(show_id: @show.id)
   end
 
   def new

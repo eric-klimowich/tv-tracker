@@ -15,3 +15,13 @@ Description: <%= @show.description %>
 <%= button_to "Edit", edit_show_path(@show), method: :get %>
 <%= button_to "Delete", show_path(@show), method: :delete %>
 <%= button_to "All Shows", shows_path, method: :get %>
+<br><br>
+
+<h3> <%= "#{@show.title} Reviews" %> </h3>
+<ul>
+  <% @reviews.each do |review| %>
+  <li> Rating: <%= review.rating %><br>
+      <%= review.content %>
+  </li>
+  <% end %>
+</ul>
