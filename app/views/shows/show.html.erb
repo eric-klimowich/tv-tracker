@@ -10,18 +10,33 @@ Status:
 <% else  %>
   Cancelled
 <% end %><br>
-Description: <%= @show.description %>
+Description: <%= @show.description %><br><br>
+<h3>Available on:</h3>
+  <ul>
+    <% @show.platforms.each do |platform| %>
+      <li><%= link_to platform.name, platform_path(platform) %></li>
+    <% end %>
+  </ul>
+
+
 <br><br>
 <%= button_to "Edit", edit_show_path(@show), method: :get %>
+<%= button_to "Add to My Shows", new_user_show_path, method: :get %>
 <%= button_to "Delete", show_path(@show), method: :delete %>
 <%= button_to "All Shows", shows_path, method: :get %>
 <br><br>
 
 <h3> <%= "#{@show.title} Reviews" %> </h3>
-<ul>
-  <% @reviews.each do |review| %>
-  <li> Rating: <%= review.rating %><br>
-      <%= review.content %>
-  </li>
-  <% end %>
-</ul>
+
+<% if @reviews[0] %>
+  <ul>
+    <% @reviews.each do |review| %>
+    <li> Rating: <%= review.rating %><br>
+        <%= review.content %>
+    </li>
+    <% end %>
+  </ul>
+<% else %>
+  No reviews yet - Be the first!
+  <%= button_to "Review #{@show.title}", new_review_path, method: :get %>
+<% end %>

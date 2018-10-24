@@ -13,7 +13,7 @@
 <% else %>
   <% @shows.each do |show| %>
     <%= link_to show.title, show %><br>
-    <%= button_to "Add to Shows", new_user_show_path, method: :get %>
+    <%= button_to "Add to My Shows", new_user_show_path, method: :get %>
     <br><br><br>
   <% end %>
 <% end %>

@@ -7,7 +7,14 @@ class ShowsController < ApplicationController
 
   def show
     @reviews = []
-    @reviews << Review.find_by(show_id: @show.id)
+    if Review.find_by(show_id: @show.id)
+      @reviews << Review.find_by(show_id: @show.id)
+    end
+    @netflix = Platform.find(1)
+    @prime = Platform.find(2)
+    @hbo = Platform.find(3)
+    @hulu = Platform.find(4)
+    flash[:show_id_to_review] = @show.id
   end
 
   def new
@@ -16,6 +23,18 @@ class ShowsController < ApplicationController
 
   def create
     @show = Show.create(show_params)
+    if @show.netflix
+      ShowPlatform.create(show_id: @show.id, platform_id: 1)
+    end
+    if @show.prime
+      ShowPlatform.create(show_id: @show.id, platform_id: 2)
+    end
+    if @show.hbo
+      ShowPlatform.create(show_id: @show.id, platform_id: 3)
+    end
+    if @show.hulu
+      ShowPlatform.create(show_id: @show.id, platform_id: 4)
+    end
     redirect_to show_path(@show)
   end
 
@@ -36,7 +55,7 @@ class ShowsController < ApplicationController
   private
 
   def show_params
-    params.require(:show).permit(:title, :seasons, :status, :lead_actor, :genre, :description, :search)
+    params.require(:show).permit(:title, :seasons, :status, :lead_actor, :genre, :description, :search, :netflix, :prime, :hbo, :hulu)
   end
 
   def find_show

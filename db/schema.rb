@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_10_22_145254) do
+ActiveRecord::Schema.define(version: 2018_10_24_140405) do
 
   create_table "platforms", force: :cascade do |t|
     t.string "name"
@@ -44,6 +44,10 @@ ActiveRecord::Schema.define(version: 2018_10_22_145254) do
     t.string "description"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "netflix"
+    t.boolean "prime"
+    t.boolean "hbo"
+    t.boolean "hulu"
   end
 
   create_table "user_shows", force: :cascade do |t|

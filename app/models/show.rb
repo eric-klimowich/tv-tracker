@@ -19,4 +19,5 @@ class Show < ApplicationRecord
     end
   end
 
+
 end
