@@ -16,17 +16,10 @@ User.create(first_name: "Deepa", last_name: "Damodar", username: "askdeepa", bio
 User.create(first_name: "Keith", last_name: "Phillips", username: "wkrp", bio: "Stuff about Keith...", location_city: "Davenport", location_state: "FL")
 User.create(first_name: "Diane", last_name: "Dever", username: "askdeepa", bio: "Stuff about Diane...", location_city: "Easton", location_state: "PA")
 
-<<<<<<< HEAD
 Platform.create(name: "Netflix" , subscription_cost: 9.99)
 Platform.create(name: "Prime" , subscription_cost: 12)
 Platform.create(name: "HBO" , subscription_cost: 15)
 Platform.create(name: "Hulu" , subscription_cost: 13.22)
-=======
-Platform.create(name: "Netflix" , subscription_cost: 11)
-Platform.create(name: "Hulu" , subscription_cost: 8)
-Platform.create(name: "Prime" , subscription_cost: 8.99)
-Platform.create(name: "HBO" , subscription_cost: 14.99)
->>>>>>> 1c362e019ab9b23ce19c2782694f6cf61cf15ae6
 
 Show.create(title: "The Office", seasons: 9, status: false, lead_actor: "Steve Carrell", genre: "Comedy", description: "A mockumentary on a group of typical office workers, where the workday consists of ego clashes, inappropriate behavior, and tedium.")
 Show.create(title: "WestWorld", seasons: 2, status: true, lead_actor: "Evan Rachel Woods", genre: "sci-fi", description: "Set at the intersection of the near future and the reimagined past, explore a world in which every human appetite can be indulged without consequence.")
