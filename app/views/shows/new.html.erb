@@ -6,7 +6,7 @@
   <%= f.label :seasons %>
   <%= f.number_field :seasons %>
   <%= f.label :genre %>
-  <%= f.collection_select :, Score.all, :id, :name %></br>
+  <%= f.collection_select(:genre, @shows, :id, :title) %></br>
   <%= f.label :lead_actor %>
   <%= f.text_field :lead_actor %></br>
   <%= f.label :status, "Still going?" %>

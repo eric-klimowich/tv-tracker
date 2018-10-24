@@ -8,18 +8,18 @@ class UserShowsController < ApplicationController
 
   def show
     @show = @user_show.show
-    @review = Review.find_by(user_id: @user.id, show_id: @show.id) 
-    flash[:show_id_to_review] = @show.id
+    @review = Review.find_by(user_id: @user.id, show_id: @show.id)
+    session[:show_id] = @show.id
   end
 
   def new
     @user_show = UserShow.new
-    @users = User.all
-    @shows = Show.all
+    @show = Show.find_by(id: session[:show_id])
   end
 
   def create
     @user_show = UserShow.create(user_show_params)
+    @user_show.update(user_id: @user.id, show_id: session[:show_id])
     redirect_to user_shows_path
   end
 

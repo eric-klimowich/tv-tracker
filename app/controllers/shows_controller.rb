@@ -14,7 +14,7 @@ class ShowsController < ApplicationController
     @prime = Platform.find(2)
     @hbo = Platform.find(3)
     @hulu = Platform.find(4)
-    flash[:show_id_to_review] = @show.id
+    session[:show_id] = @show.id
   end
 
   def new

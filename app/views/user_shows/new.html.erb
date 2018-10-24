@@ -1,10 +1,6 @@
-<h1>Add show here</h1>
+<h1>Add <%= @show.title %> to your watch list</h1>
 
 <%= form_for @user_show do |f| %>
-  <%= f.label :user_id %>
-  <%= f.collection_select(:user_id, @users, :id, :first_name) %>
-  <%= f.label :show_id %>
-  <%= f.collection_select(:show_id, @shows, :id, :title) %>
   <%= f.label :status %>
   <%= f.text_field :status %>
   <%= f.label :season %>
