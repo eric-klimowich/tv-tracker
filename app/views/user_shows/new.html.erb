@@ -1,14 +1,9 @@
 <h1>Add <%= @show.title %> to your watch list</h1>
 
-<%= form_for @user_show do |f| %>
-  <%= f.label :status %>
-  <%= f.select :status, [['',''],['Want to Watch','Want to Watch'],['Watching','Watching'],['Waiting for new episodes','Waiting for new episodes'],['Watched','Watched'],['Stopped Watching','Stopped Watching']] %>
-  <%= f.label :season %>
-  <%= f.number_field :season, within: 1..50 %>
-  <%= f.label :episode %>
-  <%= f.number_field :episode, within: 1..50 %>
-  <%= f.submit %>
-<% end %>
+<%= render 'form' %>
+<br>
+<%= render 'about' %>
+
 <br><br>
 <%= button_to "All Shows", shows_path, method: :get %>
 <%= button_to "Home", home_path, method: :get %>

@@ -1,0 +1,13 @@
+About this show:
+<h3> Seasons: <%= @show.seasons %> </h3>
+Genre: <%= @show.genre %>
+</br>
+Starring: <%= @show.lead_actor %> <br>
+Status:
+<% if @show.status %>
+  It's still going!
+<% else  %>
+  Cancelled
+<% end %><br>
+Description: <%= @show.description %>
+<br><br>
