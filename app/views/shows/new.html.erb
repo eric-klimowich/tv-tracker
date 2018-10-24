@@ -6,7 +6,7 @@
   <%= f.label :seasons %>
   <%= f.number_field :seasons %>
   <%= f.label :genre %>
-  <%= f.text_field :genre %></br>
+  <%= f.collection_select :, Score.all, :id, :name %></br>
   <%= f.label :lead_actor %>
   <%= f.text_field :lead_actor %></br>
   <%= f.label :status, "Still going?" %>
@@ -25,3 +25,9 @@
   <%= f.check_box :hulu %><br><br>
   <%= f.submit %>
 <% end  %>
+
+<br><br>
+
+<%= button_to "All Shows", shows_path, method: :get %>
+<%= button_to "Home", home_path, method: :get %>
+<%= button_to "Logout", login_path, method: :delete, data: { confirm: "Are you sure you want to log out?"} %>

@@ -10,7 +10,7 @@
   This show has <%= @show.seasons %> seasons.
 <% end %>
 <br>
-<%= button_to "Edit", edit_user_show_path(@user_show), method: :get %>
+<%= button_to "Edit Show", edit_user_show_path(@user_show), method: :get %>
 
 <br><br>
 
@@ -43,3 +43,7 @@ Description: <%= @show.description %><br><br>
       <li><%= link_to platform.name, platform_path(platform) %></li>
     <% end %>
   </ul>
+
+  <%= button_to "All Shows", shows_path, method: :get %>
+  <%= button_to "Home", home_path, method: :get %>
+  <%= button_to "Logout", login_path, method: :delete, data: { confirm: "Are you sure you want to log out?"} %>

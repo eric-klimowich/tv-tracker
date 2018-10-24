@@ -1,5 +1,6 @@
 class UsersController < ApplicationController
-  before_action :find_user, only: [:show, :edit, :update, :destroy]
+  before_action :find_user, only: [:edit, :update, :show, :destroy]
+  skip_before_action :authorized, only: [:new, :create, :show]
 
   def index
     @users = User.all
@@ -12,9 +13,16 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+
   def create
     @user = User.create(user_params)
-    redirect_to user_path(@user)
+    if @user.valid?
+      session[:user_id] = @user.id
+      flash[:notice] = "Signup successful! Welcome, #{@user.username}"
+      redirect_to user_path(@user)
+    else
+      render :new
+    end
   end
 
   def edit
@@ -26,7 +34,9 @@ class UsersController < ApplicationController
   end
 
   def destroy
-    @user.destroy
+    if @user == current_user
+      @user.destroy
+    end
     redirect_to users_path
   end
 
@@ -38,7 +48,7 @@ class UsersController < ApplicationController
   end
 
   def find_user
-    @user = User.find_by(id: params[:id])
+    current_user
   end
 
 end

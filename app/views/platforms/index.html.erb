@@ -3,3 +3,7 @@
 <% @platforms.each do |platform| %>
   <%= link_to platform.name, platform %><br>
 <% end %>
+
+<br><br>
+  <%= button_to "Home", home_path, method: :get %>
+  <%= button_to "Logout", login_path, method: :delete, data: { confirm: "Are you sure you want to log out?"} %>

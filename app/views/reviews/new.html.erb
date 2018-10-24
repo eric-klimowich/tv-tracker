@@ -7,3 +7,8 @@
   <%= f.text_area :content %>
   <%= f.submit %>
 <% end %>
+<br><br>
+
+<%= button_to "All Shows", shows_path, method: :get %>
+<%= button_to "Home", home_path, method: :get %>
+<%= button_to "Logout", login_path, method: :delete, data: { confirm: "Are you sure you want to log out?"} %>

@@ -20,10 +20,12 @@ Description: <%= @show.description %><br><br>
 
 
 <br><br>
-<%= button_to "Edit", edit_show_path(@show), method: :get %>
+<!-- <%= button_to "Edit", edit_show_path(@show), method: :get %> -->
 <%= button_to "Add to My Shows", new_user_show_path, method: :get %>
-<%= button_to "Delete", show_path(@show), method: :delete %>
+<%= button_to "My Shows", home_path, method: :get %>
 <%= button_to "All Shows", shows_path, method: :get %>
+<%= button_to "Logout", login_path, method: :delete, data: { confirm: "Are you sure you want to log out?"} %>
+
 <br><br>
 
 <h3> <%= "#{@show.title} Reviews" %> </h3>

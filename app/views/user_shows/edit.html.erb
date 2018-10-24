@@ -24,5 +24,7 @@ Status:
 Description: <%= @show.description %>
 <br><br>
 
-<%= button_to "Delete", user_show_path(@user_show), method: :delete %>
-<%= button_to "All My Shows", user_shows_path, method: :get %>
+<%= button_to "Remove From Watch List", user_show_path(@user_show), method: :delete %>
+<%= button_to "My Shows", home_path, method: :get %>
+<%= button_to "All Shows", shows_path, method: :get %>
+<%= button_to "Logout", login_path, method: :delete, data: { confirm: "Are you sure you want to log out?"} %>

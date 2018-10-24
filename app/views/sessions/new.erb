@@ -1,0 +1,17 @@
+<h1>Welcome to TV Tracker</h1>
+
+<h3>Sign In</h3>
+
+<% if flash[:error] %>
+  <%= flash[:error] %><br><br>
+<% end %>
+<%= form_tag login_path do %>
+  <%= label_tag :username %>
+  <%= text_field_tag :username %><br>
+  <%= label_tag :password %>
+  <%= password_field_tag :password %><br>
+  <%= submit_tag "Login" %>
+<% end  %>
+<br><br>
+<h3>New to TV Tracker?</h3>
+<%= button_to "Sign Up", new_user_path, method: :get %>

@@ -12,49 +12,12 @@ UserShow.destroy_all
 ShowPlatform.destroy_all
 
 
-User.create(first_name: "Eric", last_name: "Klimowich", username: "eklimowich", bio: "Stuff about me...", location_city: "Brooklyn", location_state: "NY")
-User.create(first_name: "Scoti", last_name: "Dodson", username: "scodod", bio: "Stuff about Scoti...", location_city: "New York", location_state: "NY")
-User.create(first_name: "Deepa", last_name: "Damodar", username: "askdeepa", bio: "Stuff about Deepa...", location_city: "Brooklyn", location_state: "NY")
-User.create(first_name: "Keith", last_name: "Phillips", username: "wkrp", bio: "Stuff about Keith...", location_city: "Davenport", location_state: "FL")
-User.create(first_name: "Diane", last_name: "Dever", username: "askdeepa", bio: "Stuff about Diane...", location_city: "Easton", location_state: "PA")
+# User.create(first_name: "Eric", last_name: "Klimowich", username: "eklimowich", bio: "Stuff about me...", location_city: "Brooklyn", location_state: "NY")
+# User.create(first_name: "Scoti", last_name: "Dodson", username: "scodod", bio: "Stuff about Scoti...", location_city: "New York", location_state: "NY")
+# User.create(first_name: "Deepa", last_name: "Damodar", username: "askdeepa", bio: "Stuff about Deepa...", location_city: "Brooklyn", location_state: "NY")
+# User.create(first_name: "Keith", last_name: "Phillips", username: "wkrp", bio: "Stuff about Keith...", location_city: "Davenport", location_state: "FL")
+# User.create(first_name: "Diane", last_name: "Dever", username: "askdeepa", bio: "Stuff about Diane...", location_city: "Easton", location_state: "PA")
 
-<<<<<<< HEAD
-Platform.create(name: "Netflix" , subscription_cost: 9.99)
-Platform.create(name: "Prime" , subscription_cost: 12)
-Platform.create(name: "HBO" , subscription_cost: 15)
-Platform.create(name: "Hulu" , subscription_cost: 13.22)
-
-Show.create(title: "The Office", seasons: 9, status: false, lead_actor: "Steve Carrell", genre: "Comedy", description: "A mockumentary on a group of typical office workers, where the workday consists of ego clashes, inappropriate behavior, and tedium.")
-Show.create(title: "WestWorld", seasons: 2, status: true, lead_actor: "Evan Rachel Woods", genre: "sci-fi", description: "Set at the intersection of the near future and the reimagined past, explore a world in which every human appetite can be indulged without consequence.")
-Show.create(title: "How I Met Your Mother", seasons: 9, status: false, lead_actor: "Josh Radnor", genre: "Comedy", description: "A father recounts to his children, through a series of flashbacks, the journey he and his four best friends took leading up to him meeting their mother.")
-Show.create(title: "Seinfeld", seasons: 9, status: false, lead_actor: "Jerry Seinfeld", genre: "Comedy", description: "The continuing misadventures of neurotic New York City stand-up comedian Jerry Seinfeld and his equally neurotic New York City friends.")
-Show.create(title: "The Handmaid's Tale", seasons: 2, status: true, lead_actor: "Elisabeth Moss", genre: "Drama", description: "Set in a dystopian future, a woman is forced to live as a concubine under a fundamentalist theocratic dictatorship.")
-Show.create(title: "Orange is the New Black", seasons: 6, status: true, lead_actor: "Taylor Schilling", genre: "Drama", description: "Convicted of a decade old crime of transporting drug money to an ex-girlfriend, normally law-abiding Piper Chapman is sentenced to a year and a half behind bars to face the reality of how life-changing prison can really be.")
-Show.create(title: "Game of Thrones", seasons: 7, status: true, lead_actor: "Peter Dinklage", genre: "Adventure", description: "Nine noble families fight for control over the mythical lands of Westeros, while an ancient enemy returns after being dormant for thousands of years.")
-Show.create(title: "Fixer Upper", seasons: 5, status: false, lead_actor: "Joanna Gaines", genre: "Reality", description: "Chip and Joanna Gaines take on clients in the Waco Texas area, turning their fixer uppers into the homes of their dreams.")
-Show.create(title: "Making a Murderer", seasons: 2, status: true, lead_actor: "Steven Avery", genre: "Documentary", description: "Filmed over a 10-year period, Steven Avery, a DNA exoneree who, while in the midst of exposing corruption in local law enforcement, finds himself the prime suspect in a grisly new crime.")
-Show.create(title: "Ozark", seasons: 2, status: true, lead_actor: "Jason Bateman", genre: "Crime", description: "A financial adviser drags his family from Chicago to the Missouri Ozarks, where he must launder $500 million in five years to appease a drug boss.")
-Show.create(title: "The Sopranos", seasons: 6, status: false, lead_actor: "James Gandolfini", genre: "Crime", description: "New Jersey mob boss Tony Soprano deals with personal and professional issues in his home and business life that affect his mental state, leading him to seek professional psychiatric counseling.")
-Show.create(title: "Curb Your Enthusiasm", seasons: 10, status: true, lead_actor: "Larry David", genre: "Comedy", description: "The life and times of Larry David and the predicaments he gets himself into with his friends and complete strangers.")
-Show.create(title: "Entourage", seasons: 8, status: false, lead_actor: "Kevin Connolly", genre: "Comedy", description: "Film star Vince Chase navigates the vapid terrain of Los Angeles with a close circle of friends and his trusty agent.")
-Show.create(title: "The Wire", seasons: 5, status: false, lead_actor: "Dominic West", genre: "Crime", description: "Baltimore drug scene, seen through the eyes of drug dealers and law enforcement.")
-Show.create(title: "Daredevil", seasons: 3, status: true, lead_actor: "Charlie Cox", genre: "Action", description: "A blind lawyer by day, vigilante by night. Matt Murdock fights the crime of New York as Daredevil.")
-Show.create(title: "Downton Abbey", seasons: 6, status: false, lead_actor: "Hugh Bonneville", genre: "Drama", description: "A chronicle of the lives of the British aristocratic Crawley family and their servants in the early 20th Century.")
-Show.create(title: "Unbreakable Kimmy Schmidt", seasons: 3, status: true, lead_actor: "Ellie Kemper", genre: "Comedy", description: "A woman is rescued from a doomsday cult and starts life over again in New York City.")
-Show.create(title: "The IT Crowd", seasons: 5, status: false, lead_actor: "Chris O'Dowd", genre: "Comedy", description: "The comedic misadventures of Roy, Moss and their grifting supervisor Jen, a rag-tag team of IT support workers at a large corporation headed by a hotheaded yuppie.")
-Show.create(title: "Bob's Burgers", seasons: 9, status: true, lead_actor: "H. Jon Benjamin", genre: "Comedy", description: "Bob Belcher, along with his wife and 3 children, try to run their last hope of holding the family together, which is running Bob's dream restaurant.")
-Show.create(title: "Rick and Morty", seasons: 4, status: true, lead_actor: "Justin Roiland", genre: "Adventure", description: "An animated series that follows the exploits of a super scientist and his not-so-bright grandson.")
-Show.create(title: "The Man in the High Castle", seasons: 3, status: true, lead_actor: "Alexa Davalos", genre: "Drama", description: "In a dystopian America dominated by Nazi Germany and Imperial Japan, a young woman discovers a mysterious film that may hold the key to toppling the totalitarian regimes.")
-Show.create(title: "The Marvelous Mrs. Maisel", seasons: 2, status: true, lead_actor: "Rachel Brosnahan", genre: "Comedy", description: "A housewife in the 1950s decides to become a stand-up comic.")
-Show.create(title: "Transparent", seasons: 5, status: true, lead_actor: "Jeffrey Tambor", genre: "Comedy", description: "An L.A. family with serious boundary issues have their past and future unravel when a dramatic admission causes everyone's secrets to spill out.")
-Show.create(title: "The Tick", seasons: 1, status: true, lead_actor: "Peter Serafinowicz", genre: "Action", description: "In a world where superheroes have been real for decades, an accountant with no superpowers comes to realize his city is owned by a super villain. As he struggles to uncover this conspiracy, he falls in league with a strange blue superhero.")
-Show.create(title: "Veep", seasons: 6, status: true, lead_actor: "Julia Louis-Dreyfus", genre: "Comedy", description: "Former Senator Selina Meyer finds that being Vice President of the United States is nothing like she hoped and everything that everyone ever warned her about.")
-Show.create(title: "The Americans", seasons: 6, status: false, lead_actor: "Keri Russell", genre: "Drama", description: "At the height of the Cold War two Russian agents pose as your average American couple, complete with family.")
-Show.create(title: "Schitt's Creek", seasons: 4, status: true, lead_actor: "Eugene Levy", genre: "Comedy", description: "When rich video-store magnate Johnny Rose and his family suddenly find themselves broke, they are forced to leave their pampered lives to regroup in Schitt's Creek.")
-Show.create(title: "Breaking Bad", seasons: 5, status: false, lead_actor: "Bryan Cranston", genre: "Drama", description: "A high school chemistry teacher diagnosed with inoperable lung cancer turns to manufacturing and selling methamphetamine in order to secure his family's future.")
-Show.create(title: "Arrested Development", seasons: 5, status: true, lead_actor: "Jason Bateman", genre: "Comedy", description: "Level-headed son Michael Bluth takes over family affairs after his father is imprisoned. But the rest of his spoiled, dysfunctional family are making his job unbearable.")
-Show.create(title: "Anthony Bourdain: Parts Unknown", seasons: 12, status: true, lead_actor: "Anthony Bourdain", genre: "Documentary", description: "Anthony Bourdain visits countries, delving into their political issues as well as indigenous food and culture.")
-=======
 
 Platform.create(name: "Netflix" , subscription_cost: 9.99)
 Platform.create(name: "Prime" , subscription_cost: 8.99)
@@ -67,7 +30,7 @@ Show.create(title: "The Office", seasons: 9, status: false, lead_actor: "Steve C
 ShowPlatform.create(show_id: 1, platform_id: 1)
 ShowPlatform.create(show_id: 1, platform_id: 4)
 
-Show.create(title: "WestWorld", seasons: 2, status: true, lead_actor: "Evan Rachel Woods", genre: "sci-fi", description: "Set at the intersection of the near future and the reimagined past, explore a world in which every human appetite can be indulged without consequence.", netflix: false, prime: false, hbo: true, hulu: false)
+Show.create(title: "Westworld", seasons: 2, status: true, lead_actor: "Evan Rachel Woods", genre: "sci-fi", description: "Set at the intersection of the near future and the reimagined past, explore a world in which every human appetite can be indulged without consequence.", netflix: false, prime: false, hbo: true, hulu: false)
 
 ShowPlatform.create(show_id: 2, platform_id: 3)
 
@@ -183,7 +146,6 @@ ShowPlatform.create(show_id: 29, platform_id: 1)
 Show.create(title: "Anthony Bourdain: Parts Unknown", seasons: 12, status: true, lead_actor: "Anthony Bourdain", genre: "Documentary", description: "Anthony Bourdain visits countries, delving into their political issues as well as indigenous food and culture.", netflix: true, prime: false, hbo: false, hulu: false)
 
 ShowPlatform.create(show_id: 30, platform_id: 1)
->>>>>>> 933cd6f2cc2fb59cb7edc7dedddd7cc576efc42b
 
 
 UserShow.create(user_id: 1, show_id: 1, status: "Watched", season: 9, episode: 22)
