@@ -11,10 +11,11 @@
   <%= button_to "Back to all shows", shows_path, method: :get %>
   <%= button_to "Create a new show", new_show_path, method: :get %>
 <% else %>
+
   <% @shows.each do |show| %>
     <%= link_to show.title, show %><br>
-    <%= button_to "Add to My Shows", new_user_show_path, method: :get %>
     <br><br><br>
+<!-- took out the add to shows button from this page... can we find a way to pass through an identity? -->
   <% end %>
 <% end %>
 <br><br>

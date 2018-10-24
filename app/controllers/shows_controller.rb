@@ -3,6 +3,7 @@ class ShowsController < ApplicationController
 
   def index
     @shows = Show.search(params[:search])
+    
   end
 
   def show
@@ -19,6 +20,7 @@ class ShowsController < ApplicationController
 
   def new
     @show = Show.new
+    @genres = ["Comedy", "Drama", "Documentary", "Reality", "Sci-fi", "Horror", "Action & Adventure", "Game Show"]
   end
 
   def create

@@ -4,9 +4,9 @@
   <%= f.label :title %>
   <%= f.text_field :title %></br>
   <%= f.label :seasons %>
-  <%= f.number_field :seasons %>
+  <%= f.number_field :seasons, within: 1..50 %>
   <%= f.label :genre %>
-  <%= f.collection_select(:genre, @shows, :id, :title) %></br>
+  <%= f.select :genre, [['',''],['Action & Adventure','Action & Adventure'],['Comedy','Comedy'],['Documentary','Documentary'],['Drama','Drama'],['Game Show','Game Show'],['Horror','Horror'],['Reality','Reality'],['Sci-Fi','Sci-Fi']] %> </br>
   <%= f.label :lead_actor %>
   <%= f.text_field :lead_actor %></br>
   <%= f.label :status, "Still going?" %>

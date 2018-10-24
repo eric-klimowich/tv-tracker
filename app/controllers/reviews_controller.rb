@@ -24,7 +24,7 @@ class ReviewsController < ApplicationController
   end
 
   def find_user
-    @user = User.find(1)
+    current_user
   end
 
 end
