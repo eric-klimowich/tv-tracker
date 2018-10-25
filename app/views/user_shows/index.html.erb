@@ -1,21 +1,4 @@
 
-<<<<<<< HEAD
-<% if @saved_shows == [] %>
-You aren't currently watching any shows.
-<% else %>
-  <% @saved_shows.each do |show| %>
-    <% @user_show = UserShow.find_by(show_id: show.id, user_id: @user.id) %>
-    <%= link_to show.title, user_show_path(@user_show) %><br>
-  <% end %>
-<% end %>
-<br>
-
-<h1><%= @user.first_name %>'s Stats</h1>
-
-
-<h3>Currently Watching </h3>
-You are currently watching <%= @user.total_watching %> of your <%= @user.total_saved %> saved shows.
-=======
 <body>
   <section class="jumbotron text-center">
     <div class="container">
@@ -40,7 +23,6 @@ You are currently watching <%= @user.total_watching %> of your <%= @user.total_s
           <% else %>
         </div>
       </div>
->>>>>>> scoti-css2
 
       <div class="album py-5 bg-light">
         <div class="container">
@@ -70,17 +52,6 @@ You are currently watching <%= @user.total_watching %> of your <%= @user.total_s
       </div>
     </div>
 
-<<<<<<< HEAD
-<h3>Finished Shows</h3>
-You have finished <%= @user.total_finished %> of your <%= @user.total_saved %> saved shows.
-
-
-
-<h3>Shows By Platform</h3>
-<ul>
-  <li>You have watched <%= @user.platform_total("Netflix") %>
-    of <%= @user.total_watched %> shows on Netflix.</li>
-=======
     <div class="column2">
       <div class="container">
         <div class="text-center">
@@ -104,7 +75,6 @@ You have finished <%= @user.total_finished %> of your <%= @user.total_saved %> s
             of your
             <%= @user.total_saved %>
             saved shows.</p><br>
->>>>>>> scoti-css2
 
             <h3>- Shows By Platform -</h3>
             <p>You have watched
@@ -125,17 +95,6 @@ You have finished <%= @user.total_finished %> of your <%= @user.total_saved %> s
                   <%= @user.total_watched %>
                   shows on HBO.</p>
 
-<<<<<<< HEAD
-  <% if @user.platform_total("Other") > 0 %>
-  <li>You have watched <%= @user.platform_total("Other") %>
-    of <%= @user.total_watched %> shows on an alternative platform.</li>
-  <% end %>
-</ul>
-
-<%= render 'buttons/all_shows' %>
-<%= render 'buttons/my_account' %>
-<%= render 'buttons/logout' %>
-=======
                   <p>You have watched
                     <%= @user.platform_total("Hulu") %>
                     of
@@ -157,4 +116,3 @@ You have finished <%= @user.total_finished %> of your <%= @user.total_saved %> s
                       </div>
       </div>
     </section>
->>>>>>> scoti-css2
