@@ -21,6 +21,7 @@ Description: <%= @show.description %><br><br>
 
 <br><br>
 <!-- <%= button_to "Edit", edit_show_path(@show), method: :get %> -->
+<%= button_to "Add #{@show.title} to My Shows", new_user_show_path, method: :get %>
 <%= render 'buttons/my_shows' %>
 <%= render 'buttons/all_shows' %>
 <%= render 'buttons/my_account' %>
