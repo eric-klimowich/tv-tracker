@@ -49,7 +49,7 @@ class UserShowsController < ApplicationController
   end
 
   def user_show_params
-    params.require(:user_show).permit(:user_id, :show_id, :status, :season, :episode)
+    params.require(:user_show).permit(:user_id, :show_id, :status, :season, :episode, :watched_on)
   end
 
   def find_user

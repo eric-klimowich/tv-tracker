@@ -45,6 +45,7 @@ class ShowsController < ApplicationController
   end
 
   def edit
+    @show = Show.find_by(id: session[:show_id])
   end
 
   def update
@@ -61,7 +62,7 @@ class ShowsController < ApplicationController
   private
 
   def show_params
-    params.require(:show).permit(:title, :seasons, :status, :lead_actor, :genre, :description, :search, :netflix, :prime, :hbo, :hulu)
+    params.require(:show).permit(:title, :seasons, :status, :lead_actor, :genre, :description, :search, :netflix, :prime, :hbo, :hulu, :search)
   end
 
   def find_show

@@ -10,5 +10,4 @@ class UserShow < ApplicationRecord
   #       errors.add(:status, "Series complete. No new episodes.")
   #   end
   # end
-
 end

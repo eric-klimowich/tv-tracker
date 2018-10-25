@@ -1,7 +1,10 @@
-About this show:
-<h3> Seasons: <%= @show.seasons %> </h3>
-Genre: <%= @show.genre %>
-</br>
+
+<% if @show.reviews %>
+  <%= "Average Rating: #{@show.average_rating} (#{@show.reviews.length} Reviews)" %>
+<% end %><br>
+
+Seasons: <%= @show.seasons %><br>
+Genre: <%= @show.genre %></br>
 Starring: <%= @show.lead_actor %> <br>
 Status:
 <% if @show.status %>
@@ -11,3 +14,11 @@ Status:
 <% end %><br>
 Description: <%= @show.description %>
 <br><br>
+<h3>Available on:</h3>
+  <ul>
+    <% @show.platforms.each do |platform| %>
+      <li><%= link_to platform.name, platform_path(platform) %></li>
+    <% end %>
+  </ul>
+  <br>
+  <%= button_to "Edit Show Details", edit_show_path(@show), method: :get %>

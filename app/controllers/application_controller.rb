@@ -19,4 +19,16 @@ class ApplicationController < ActionController::Base
 
   end
 
+  def average_rating
+    reviews = Review.where(show_id: self.id)
+    sum = 0
+    total = 0
+    reviews.each do |review|
+      sum += review.rating
+      total += 1
+    end
+    @average_rating = sum/total
+
+  end
+
 end
