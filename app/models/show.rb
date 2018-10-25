@@ -7,9 +7,8 @@ class Show < ApplicationRecord
 
   def self.search(search)
     if search
-      show = []
-      if Show.find_by(title: search)
-      show << Show.find_by(title: search)
+      if Show.where("title like ?", "%#{search}%")
+      Show.where("title like ?", "%#{search}%")
       else
         "no results"
       end
@@ -18,6 +17,5 @@ class Show < ApplicationRecord
       order('id DESC')
     end
   end
-
 
 end
