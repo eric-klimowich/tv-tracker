@@ -3,14 +3,6 @@
   <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading">All Shows</h1>
-      <h1></h1>
-      <p class="lead text-muted">
-        <%= "Season #{@user.last_logged_season}    -    Episode #{@user.last_logged_episode}" %>
-      </p>
-      <p>
-        <a href= <%="/user_shows/#{@user.last_logged_obj.show_id}"%>  class="btn btn-primary my-2" id="button">UPDATE STATUS</a>
-        <a href="/shows" class="btn btn-primary my-2">FIND A NEW SHOW</a>
-      </p>
     </div>
   </section>
 
@@ -18,11 +10,6 @@
     <div class="column_only">
       <div class="container">
         <div class="text-center">
-
-          <%= form_tag(shows_path, method: :get) do %>
-          <%= hidden_field_tag :search, "popular" %>
-          <%= submit_tag 'Most Popular Shows' %>
-          <% end %>
 
           <%= form_tag(shows_path, method: :get) do %>
           <p><label>  Search Show Name</label>

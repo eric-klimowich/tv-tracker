@@ -2,14 +2,21 @@
 <body>
   <section class="jumbotron text-center">
     <div class="container">
-      <h1 class="jumbotron-heading">Currently Watching: <%= @user.last_logged_title %></h1>
-      <p class="lead text-muted">
-        <%= "Season #{@user.last_logged_season}    -    Episode #{@user.last_logged_episode}" %>
-      </p>
+      <% if @user.last_logged_title %>
+        <h1 class="jumbotron-heading">Currently Watching: <%= @user.last_logged_title %></h1>
+        <p class="lead text-muted">
+          <%= "Season #{@user.last_logged_season}    -    Episode #{@user.last_logged_episode}" %>
+        </p>
+        <p>
+          <a href= <%="/user_shows/#{@user.last_logged_obj.show_id}"%>  class="btn btn-primary my-2" id="button">UPDATE STATUS</a>
+          <a href="/shows" class="btn btn-primary my-2">FIND A NEW SHOW</a>
+        </p>
+      <% else %>
+      <h1 class="jumbotron-heading">Welcome, <%= @user.show_name %></h1>
       <p>
-        <a href= <%="/user_shows/#{@user.last_logged_obj.show_id}"%>  class="btn btn-primary my-2" id="button">UPDATE STATUS</a>
         <a href="/shows" class="btn btn-primary my-2">FIND A NEW SHOW</a>
       </p>
+      <% end %>
     </div>
   </section>
 
