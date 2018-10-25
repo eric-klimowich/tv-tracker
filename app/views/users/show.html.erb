@@ -1,11 +1,15 @@
 <h1> <%= @user.show_name %>'s Account </h1>
 
 <% if flash[:notice] %>
-  <%= flash[:notice] %>
+  <div class="alert alert-success">
+    <strong>Success!</strong> <%= flash[:notice] + "!" %>
+  </div>
 <% end %>
 <br>
+
 Location: <%= @user.location %>
 </br>
+
 About Me: <%= @user.bio %>
 
 <% if @user.shows %>
@@ -15,8 +19,6 @@ About Me: <%= @user.bio %>
   <% end  %>
   </ul>
 <% end %>
-
-
 
 <%= button_to "Edit Account Info", edit_user_path, method: :get %>
 <%= button_to "Home", home_path, method: :get %>
