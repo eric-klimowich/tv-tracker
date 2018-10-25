@@ -36,18 +36,38 @@ class User < ApplicationRecord
   end
 
   def last_logged_title
-    self.user_shows.last.show.title
+    @result = nil
+    if self.user_shows
+      @result = self.user_shows.last.show.title
+    end
+    @result
   end
 
   def last_logged_season
-    self.user_shows.last.season
+    @result = nil
+    if self.user_shows
+      @result = self.user_shows.last.season
+    end
+    @result
   end
+
   def last_logged_episode
-    self.user_shows.last.episode
+    @result = nil
+    if self.user_shows
+      @result = self.user_shows.last.episode
+    end
+    @result
   end
 
   def last_logged_obj
-    self.user_shows.last
+    @object = nil
+    if self.user_shows
+      @object = self.user_shows.last
+    end
+    @object
+  end
+
+
   end
 
   # def shows_watched
