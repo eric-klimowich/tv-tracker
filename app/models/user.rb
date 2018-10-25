@@ -11,4 +11,26 @@ class User < ApplicationRecord
   def location
     "#{self.location_city}, #{self.location_state}"
   end
+
+  def platform_total(platform)
+    saved_shows = UserShow.where(user_id: self.id)
+    saved_shows.select { |s| s.watched_on == "#{platform}" }.length
+  end
+
+  def total_watched
+    self.user_shows.select { |s| s.status == "Watched" || s.status == "Watching" }.length
+  end
+
+  def total_finished
+    self.user_shows.select { |s| s.status == "Watched" }.length
+  end
+
+  def total_watching
+    self.user_shows.select { |s| s.status == "Watching" }.length
+  end
+
+  def total_saved
+    self.shows.length
+  end
+
 end

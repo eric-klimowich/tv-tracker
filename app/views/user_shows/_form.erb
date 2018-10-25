@@ -5,5 +5,7 @@
   <%= f.number_field :season, within: 1..50 %>
   <%= f.label :episode %>
   <%= f.number_field :episode, within: 1..50 %>
+  <%= f.label :watched_on %>
+  <%= f.select :watched_on, [['',''], ['Netflix','Netflix'],['Prime','Prime'],['HBO','HBO'],['Hulu','Hulu'], ['Other','Other']] %>
   <%= f.submit %>
 <% end %>
