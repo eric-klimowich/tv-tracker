@@ -18,9 +18,14 @@ class UserShowsController < ApplicationController
   end
 
   def create
-    @user_show = UserShow.create(user_show_params)
+    @user_show = UserShow.find_or_create_by(user_show_params)
     @user_show.update(user_id: @user.id, show_id: session[:show_id])
-    redirect_to user_shows_path
+    if @user_show.valid?
+      redirect_to user_shows_path
+    else
+      flash[:error] = @user_show.errors.full_messages
+      redirect_to new_user_show_path
+    end
   end
 
   def edit

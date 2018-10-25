@@ -36,7 +36,12 @@ class ShowsController < ApplicationController
     if @show.hulu
       ShowPlatform.create(show_id: @show.id, platform_id: 4)
     end
-    redirect_to show_path(@show)
+    if @show.valid?
+      redirect_to show_path(@show)
+    else
+      flash[:error] = @show.errors.full_messages
+      redirect_to new_show_path
+    end
   end
 
   def edit

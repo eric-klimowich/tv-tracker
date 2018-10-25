@@ -21,6 +21,7 @@ class UsersController < ApplicationController
       flash[:notice] = "Signup successful! Welcome, #{@user.username}"
       redirect_to user_path(@user)
     else
+      flash[:error] = @user.errors.full_messages
       render :new
     end
   end

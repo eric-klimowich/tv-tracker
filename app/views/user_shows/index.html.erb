@@ -1,8 +1,12 @@
 <h1><%= @user.first_name %>'s Shows</h1>
 
-<% @saved_shows.each do |show| %>
-  <% @user_show = UserShow.find_by(show_id: show.id, user_id: @user.id) %>
-  <%= link_to show.title, user_show_path(@user_show) %><br>
+<% if @saved_shows == [] %>
+You aren't currently watching any shows.
+<% else %>
+  <% @saved_shows.each do |show| %>
+    <% @user_show = UserShow.find_by(show_id: show.id, user_id: @user.id) %>
+    <%= link_to show.title, user_show_path(@user_show) %><br>
+  <% end %>
 <% end %>
 <br>
 <h1><%= @user.first_name %>'s Stats</h1>
@@ -11,6 +15,13 @@
 You are currently watching <%= @user.total_watching %> of your <%= @user.total_saved %> saved shows.
 
 
+<<<<<<< HEAD
+=======
+<%= button_to "All Shows", shows_path, method: :get %>
+<%= button_to "My Account Info", user_path(@user), method: :get %>
+<%= button_to "Logout", login_path, method: :delete, data: { confirm: "Are you sure you want to log out?"} %>
+
+>>>>>>> 19a867f0ff4bac745b392c4e81ad3cf8b7650f66
 <h3>Finished Shows</h3>
 You have finished <%= @user.total_finished %> of your <%= @user.total_saved %> saved shows.
 
