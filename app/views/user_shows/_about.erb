@@ -17,7 +17,7 @@ Description: <%= @show.description %>
 <h3>Available on:</h3>
   <ul>
     <% @show.platforms.each do |platform| %>
-      <li><%= link_to platform.name, platform_path(platform) %></li>
+      <li><%= platform.name %></li>
     <% end %>
   </ul>
   <br>

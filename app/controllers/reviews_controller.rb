@@ -17,9 +17,6 @@ class ReviewsController < ApplicationController
       else
         redirect_to show_path(@show)
       end
-
-    if @user_show
-      redirect_to user_show_path(@user_show)
     else
       flash[:error] = @review.errors.full_messages
       redirect_to new_review_path
@@ -31,7 +28,7 @@ class ReviewsController < ApplicationController
     @user_show = Review.find_by(user_id: @user.id, show_id: session[:show_id])
     @review.destroy
     session[:show_id] = @user_show.show.id
-    redirect_to user_show_path(@user_show)
+    redirect_to home_path
   end
 
   private

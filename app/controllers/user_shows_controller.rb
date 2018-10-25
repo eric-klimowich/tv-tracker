@@ -34,7 +34,7 @@ class UserShowsController < ApplicationController
 
   def update
     @user_show.update(user_show_params)
-    redirect_to user_shows_path
+    redirect_to user_show_path(@user_show)
   end
 
   def destroy

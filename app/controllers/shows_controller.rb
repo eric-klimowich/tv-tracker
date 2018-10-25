@@ -7,8 +7,8 @@ class ShowsController < ApplicationController
 
   def show
     @reviews = []
-    if Review.find_by(show_id: @show.id)
-      @reviews << Review.find_by(show_id: @show.id)
+    if Review.where(show_id: @show.id)
+      @reviews = Review.where(show_id: @show.id)
     end
     @netflix = Platform.find(1)
     @prime = Platform.find(2)
