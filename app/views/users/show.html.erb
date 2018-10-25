@@ -14,11 +14,11 @@ About Me: <%= @user.bio %>
 <% end %>
 
 
-
-<%= button_to "Home", home_path, method: :get %>
-<%= button_to "All Shows", shows_path, method: :get %>
+<%= render 'buttons/my_shows' %>
+<%= render 'buttons/all_shows' %>
+<%= render 'buttons/my_account' %>
+<%= render 'buttons/logout' %>
 <% if session[:user_id] == @user.id %>
-  <%= button_to "Logout", login_path, method: :delete, data: { confirm: "Are you sure you want to log out?"} %>
   <!-- <%= button_to "Edit", edit_user_path(@user), method: :get %> -->
   <%= button_to "Delete Account", user_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete your account?"} %>
 <% end %>
