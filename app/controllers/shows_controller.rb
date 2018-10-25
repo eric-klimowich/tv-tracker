@@ -3,14 +3,14 @@ class ShowsController < ApplicationController
 
   def index
     @shows = Show.search(params[:search])
-
   end
 
   def show
-    @reviews = []
-    if Review.find_by(show_id: @show.id)
-      @reviews << Review.find_by(show_id: @show.id)
-    end
+    # @reviews = []
+    # if Review.find_by(show_id: @show.id)
+    #   @reviews << Review.find_by(show_id: @show.id)
+    # end
+    @reviews = Review.search(params[:search])
     @netflix = Platform.find(1)
     @prime = Platform.find(2)
     @hbo = Platform.find(3)
@@ -57,7 +57,7 @@ class ShowsController < ApplicationController
   private
 
   def show_params
-    params.require(:show).permit(:title, :seasons, :status, :lead_actor, :genre, :description, :search, :netflix, :prime, :hbo, :hulu)
+    params.require(:show).permit(:title, :seasons, :status, :lead_actor, :genre, :description, :search, :netflix, :prime, :hbo, :hulu, :search)
   end
 
   def find_show
