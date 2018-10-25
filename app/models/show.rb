@@ -4,6 +4,9 @@ class Show < ApplicationRecord
   has_many :users, through: :user_shows
   has_many :show_platforms
   has_many :platforms, through: :show_platforms
+  validates :title, :seasons, :genre, :lead_actor, :description, presence: true
+  validates :title, uniqueness: true
+  validates :seasons, numericality: true
 
   def self.search(search)
     if search

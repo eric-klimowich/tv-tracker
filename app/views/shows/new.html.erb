@@ -1,5 +1,13 @@
 <h1>New Show</h1>
 
+<% if flash[:error] %>
+  Show could not be created because of the following error(s):
+  <br>
+  <% flash[:error].each do |error| %>
+    <%= error %><br>
+  <% end %>
+<% end %>
+
 <%= form_for @show do |f| %>
   <%= f.label :title %>
   <%= f.text_field :title %></br>

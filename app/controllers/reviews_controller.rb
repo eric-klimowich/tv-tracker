@@ -11,11 +11,15 @@ class ReviewsController < ApplicationController
     @show = Show.find_by(id: session[:show_id])
     @review.update(user_id: @user.id, show_id: @show.id)
     @user_show = UserShow.find_by(user_id: @user.id, show_id: @show.id)
-    
-    if @user_show
-      redirect_to user_show_path(@user_show)
+    if @review.valid?
+      if @user_show
+        redirect_to user_show_path(@user_show)
+      else
+        redirect_to show_path(@show)
+      end
     else
-      redirect_to show_path(@show)
+      flash[:error] = @review.errors.full_messages
+      redirect_to new_review_path
     end
   end
 

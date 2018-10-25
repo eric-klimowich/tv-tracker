@@ -15,6 +15,7 @@ About Me: <%= @user.bio %>
 
 
 
+<%= button_to "Edit Account Info", edit_user_path, method: :get %>
 <%= button_to "Home", home_path, method: :get %>
 <%= button_to "All Shows", shows_path, method: :get %>
 <% if session[:user_id] == @user.id %>
