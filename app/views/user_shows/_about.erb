@@ -1,4 +1,8 @@
 
+<% if @show.reviews %>
+  <%= "Average Rating: #{@show.average_rating} (#{@show.reviews.length} Reviews)" %>
+<% end %><br>
+
 Seasons: <%= @show.seasons %><br>
 Genre: <%= @show.genre %></br>
 Starring: <%= @show.lead_actor %> <br>

@@ -1,6 +1,11 @@
 <h1>All Shows</h1>
 
 <%= form_tag(shows_path, method: :get) do %>
+  <%= hidden_field_tag :search, "popular" %>
+  <%= submit_tag 'Most Popular Shows' %>
+<% end %>
+
+<%= form_tag(shows_path, method: :get) do %>
   <p><label>  Search Show Name</label>
   <%= text_field_tag :search, params[:search] %>
   <%= submit_tag 'Search' %>
@@ -10,6 +15,8 @@
   That show doesn't exist yet.
   <%= button_to "Back to all shows", shows_path, method: :get %>
   <%= button_to "Create a new show", new_show_path, method: :get %>
+<% elsif @shows == "popular" %>
+
 <% else %>
 
   <% @shows.each do |show| %>
