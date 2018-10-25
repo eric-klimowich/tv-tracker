@@ -16,3 +16,5 @@ Description: <%= @show.description %>
       <li><%= link_to platform.name, platform_path(platform) %></li>
     <% end %>
   </ul>
+  <br>
+  <%= button_to "Edit Show Details", edit_show_path(@show), method: :get %>

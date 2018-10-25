@@ -40,6 +40,7 @@ class ShowsController < ApplicationController
   end
 
   def edit
+    @show = Show.find_by(id: session[:show_id])
   end
 
   def update

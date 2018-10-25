@@ -1,0 +1,32 @@
+<%= form_for @show do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %></br>
+  <%= f.label :seasons %>
+  <%= f.number_field :seasons, within: 1..50 %>
+  <%= f.label :genre %>
+  <%= f.select :genre, [['',''],['Action & Adventure','Action & Adventure'],['Comedy','Comedy'],['Documentary','Documentary'],['Drama','Drama'],['Fantasy','Fantasy'], ['Game Show','Game Show'],['Horror','Horror'],['Reality','Reality'],['Sci-Fi','Sci-Fi']] %> </br>
+  <%= f.label :lead_actor %>
+  <%= f.text_field :lead_actor %></br>
+  <%= f.label :status, "Still going?" %>
+  <%= f.check_box :status %></br>
+  <%= f.label :description %>
+  <%= f.text_area :description %><br>
+
+  <h3><%= f.label "Available on:" %></h3>
+  <%= f.label :netflix %>
+  <%= f.check_box :netflix %>
+  <%= f.label :prime %>
+  <%= f.check_box :prime %>
+  <%= f.label :hbo, "HBO" %>
+  <%= f.check_box :hbo %>
+  <%= f.label :hulu %>
+  <%= f.check_box :hulu %><br><br>
+  <%= f.submit %>
+<% end  %>
+
+<br><br>
+
+<%= render 'buttons/my_shows' %>
+<%= render 'buttons/all_shows' %>
+<%= render 'buttons/my_account' %>
+<%= render 'buttons/logout' %>
