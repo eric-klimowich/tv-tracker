@@ -7,37 +7,39 @@
         <%= "Season #{@user.last_logged_season}    -    Episode #{@user.last_logged_episode}" %>
       </p>
       <p>
-        <a href= <%="/user_shows/#{@user.last_logged_obj.show_id}/edit"%>  class="btn btn-primary my-2" id="button">UPDATE STATUS</a>
+        <a href= <%="/user_shows/#{@user.last_logged_obj.show_id}"%>  class="btn btn-primary my-2" id="button">UPDATE STATUS</a>
         <a href="/shows" class="btn btn-primary my-2">FIND A NEW SHOW</a>
       </p>
     </div>
   </section>
 
   <section>
-    <div class="container">
-      <div class="text-center">
-        <h1><%= @user.first_name %>'s Shows</h1>
-        <% if @saved_shows == [] %>
-        <p>You aren't currently watching any shows.</p>
-        <% else %>
+    <div class="column1">
+      <div class="container">
+        <div class="text-center">
+          <h1><%= @user.first_name %>'s Shows</h1>
+          <% if @saved_shows == [] %>
+          <p>You aren't currently watching any shows.</p>
+          <% else %>
+        </div>
       </div>
-    </div>
+
       <div class="album py-5 bg-light">
         <div class="container">
-        <% @saved_shows.each do |show| %>
+          <% @saved_shows.each do |show| %>
           <div class="row">
             <div class="col-md-4">
               <div class="card mb-4 box-shadow">
                 <div class="card-body">
                   <% @user_show = UserShow.find_by(show_id: show.id, user_id: @user.id) %>
-                    <p class="card-text"><%= link_to show.title, user_show_path(@user_show) %></p>
-                    <p class="card-text">Starring: <%= show.lead_actor %></p>
-                    <p class="card-text"><%= show.description %></p>
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                      </div>
+                  <p class="card-text"><%= link_to show.title, user_show_path(@user_show) %></p>
+                  <p class="card-text">Starring: <%= show.lead_actor %></p>
+                  <p class="card-text"><%= show.description %></p>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
+                      <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
+                    </div>
                     <small class="text-muted">9 mins</small>
                   </div>
                 </div>
@@ -48,68 +50,69 @@
         </div>
         <% end %>
       </div>
-    </section>
-
-<br>
-
-<div class="container">
-  <div class="text-center">
-    <h1><%= @user.first_name %>'s Stats</h1>
-
-    <div class="analytics__container">
-
-      <h3>- Currently Watching -
-      </h3>
-      <p>You are currently watching
-      <%= @user.total_watching %>
-      of your
-      <%= @user.total_saved %>
-      saved shows.</p><br>
-
-      <h3>- Finished Shows - </h3>
-      <p>You have finished
-      <%= @user.total_finished %>
-      of your
-      <%= @user.total_saved %>
-      saved shows.</p><br>
-
-      <h3>- Shows By Platform -</h3>
-        <p>You have watched
-          <%= @user.platform_total("Netflix") %>
-          of
-          <%= @user.total_watched %>
-          shows on Netflix.</p>
-
-        <p>You have watched
-          <%= @user.platform_total("Prime") %>
-          of
-          <%= @user.total_watched %>
-          shows on Prime.</p>
-
-        <p>You have watched
-          <%= @user.platform_total("HBO") %>
-          of
-          <%= @user.total_watched %>
-          shows on HBO.</p>
-
-        <p>You have watched
-          <%= @user.platform_total("Hulu") %>
-          of
-          <%= @user.total_watched %>
-          shows on Hulu.</p>
-
-        <% if @user.platform_total("Other") > 0 %>
-          <p>You have watched
-            <%= @user.platform_total("Other") %>
-            of
-            <%= @user.total_watched %>
-            shows on an alternative platform.</p>
-        <% end %><br><br>
-
-      <%= render 'buttons/all_shows' %>
-      <%= render 'buttons/my_account' %>
-      <%= render 'buttons/logout' %>
-
     </div>
-  </div>
-</div>
+
+    <div class="column2">
+      <div class="container">
+        <div class="text-center">
+          <h1><%= @user.first_name %>'s Stats</h1><br>
+        </div>
+      </div>
+
+      <div class="container">
+        <div class="text-center">
+        <h3>- Currently Watching -
+        </h3>
+        <p>You are currently watching
+          <%= @user.total_watching %>
+          of your
+          <%= @user.total_saved %>
+          saved shows.</p><br>
+
+          <h3>- Finished Shows - </h3>
+          <p>You have finished
+            <%= @user.total_finished %>
+            of your
+            <%= @user.total_saved %>
+            saved shows.</p><br>
+
+            <h3>- Shows By Platform -</h3>
+            <p>You have watched
+              <%= @user.platform_total("Netflix") %>
+              of
+              <%= @user.total_watched %>
+              shows on Netflix.</p>
+
+              <p>You have watched
+                <%= @user.platform_total("Prime") %>
+                of
+                <%= @user.total_watched %>
+                shows on Prime.</p>
+
+                <p>You have watched
+                  <%= @user.platform_total("HBO") %>
+                  of
+                  <%= @user.total_watched %>
+                  shows on HBO.</p>
+
+                  <p>You have watched
+                    <%= @user.platform_total("Hulu") %>
+                    of
+                    <%= @user.total_watched %>
+                    shows on Hulu.</p>
+
+                    <% if @user.platform_total("Other") > 0 %>
+                    <p>You have watched
+                      <%= @user.platform_total("Other") %>
+                      of
+                      <%= @user.total_watched %>
+                      shows on an alternative platform.</p>
+                      <% end %><br><br>
+
+                      <%= render 'buttons/all_shows' %>
+                      <%= render 'buttons/my_account' %>
+                      <%= render 'buttons/logout' %>
+                      </div>
+                      </div>
+      </div>
+    </section>

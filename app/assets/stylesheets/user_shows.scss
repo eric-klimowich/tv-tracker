@@ -11,6 +11,24 @@
   width: device-width;
 }
 
+.column1 {
+    float: left;
+    width: 70%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+.column2 {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+.column_only {
+    float: left;
+    width: 100%;
+    padding: 10px;
+}
 
 
 body {
@@ -36,7 +54,7 @@ body {
 }
 
 .jumbotron {
-    padding: 2rem 1rem;
+    padding: 6rem 1rem;
     margin-bottom: 2rem;
     background-color: #e9ecef;
     border-radius: .3rem;
