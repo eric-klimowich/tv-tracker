@@ -34,13 +34,17 @@ class Show < ApplicationRecord
 
   def average_rating
     reviews = self.reviews
-    sum = 0
-    total = 0
-    reviews.each do |review|
-      sum += review.rating.to_f
-      total += 1
+    @average_rating = "--"
+    if self.reviews
+      sum = 0
+      total = 0
+      reviews.each do |review|
+        sum += review.rating.to_f
+        total += 1
+        @average_rating = (sum/total).round(1)
+      end
     end
-    @average_rating = (sum/total).round(1)
+    @average_rating
   end
 
 end

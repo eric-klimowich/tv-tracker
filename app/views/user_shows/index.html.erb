@@ -5,6 +5,12 @@
   <%= link_to show.title, user_show_path(@user_show) %><br>
 <% end %>
 <br>
+<h1><%= @user.first_name %>'s Stats</h1>
+
+<h3>Finished Shows</h3>
+You have watched ### of your ### saved shows.
+
+<h3>Shows By Platform</h3>
 
 
 <%= render 'buttons/all_shows' %>
