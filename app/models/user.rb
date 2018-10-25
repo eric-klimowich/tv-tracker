@@ -33,4 +33,25 @@ class User < ApplicationRecord
     self.shows.length
   end
 
+  # def shows_watched
+  #   @shows = []
+  #   self.user_shows.select { |s| s.status == "Watched" || s.status == "Watching" }.map do |show|
+  #     @shows << show.title
+  #   end
+  #   @shows
+  # end
+  #
+  # def shows_finished
+  #   self.user_shows.select { |s| s.status == "Watched" }.length
+  # end
+  #
+  # def shows_watching
+  #   @shows = []
+  #   @shows << self.user_shows.select { |s| s.status == "Watching" }
+  #   @shows.map do |show|
+  #     @shows << show.title
+  #   end
+  #   @shows
+  # end
+
 end
