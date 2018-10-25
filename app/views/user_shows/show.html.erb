@@ -9,6 +9,7 @@
 <% else %>
   This show has <%= @show.seasons %> seasons.
 <% end %>
+
 <br>
 <%= button_to "Update My Watch Info", edit_user_show_path(@user_show), method: :get %>
 <%= button_to "Remove From Watch List", user_show_path(@user_show), method: :delete %>
@@ -16,12 +17,14 @@
 <br><br>
 
 <% if @review %>
-<h3><%= "Your review of #{@show.title}:" %></h3>
-Rating: <%= @review.rating %><br>
-<%= @review.content %>
+  <h3><%= "Your review of #{@show.title}:" %></h3>
+  Rating: <%= @review.rating %><br>
+  <%= @review.content %>
+  <%= button_to "Delete Review for #{@user_show.show.title}", review_path(@review), method: :delete %>
+
 <% else %>
-<h3> <%= "You haven't reviewed #{@show.title} yet!" %> </h3>
-<%= button_to "Review #{@user_show.show.title}", new_review_path, method: :get %>
+  <h3> <%= "You haven't reviewed #{@show.title} yet!" %> </h3>
+  <%= button_to "Review #{@user_show.show.title}", new_review_path, method: :get %>
 <% end %>
 
 <br><br>

@@ -1,23 +1,7 @@
+
 <h1> <%= @show.title %> </h1>
 
-<h3> Seasons: <%= @show.seasons %> </h3>
-Genre: <%= @show.genre %>
-</br>
-Starring: <%= @show.lead_actor %> <br>
-Status:
-<% if @show.status %>
-  It's still going!
-<% else  %>
-  Cancelled
-<% end %><br>
-Description: <%= @show.description %><br><br>
-<h3>Available on:</h3>
-  <ul>
-    <% @show.platforms.each do |platform| %>
-      <li><%= link_to platform.name, platform_path(platform) %></li>
-    <% end %>
-  </ul>
-
+<%= render 'user_shows/about' %>
 
 <br><br>
 <!-- <%= button_to "Edit", edit_show_path(@show), method: :get %> -->

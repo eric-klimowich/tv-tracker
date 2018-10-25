@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
     @show = Show.find_by(id: session[:show_id])
     @review.update(user_id: @user.id, show_id: @show.id)
     @user_show = UserShow.find_by(user_id: @user.id, show_id: @show.id)
-    
+
     if @user_show
       redirect_to user_show_path(@user_show)
     else
@@ -20,6 +20,11 @@ class ReviewsController < ApplicationController
   end
 
   def destroy
+    @review = Review.find_by(user_id: @user.id, show_id: session[:show_id])
+    @user_show = Review.find_by(user_id: @user.id, show_id: session[:show_id])
+    @review.destroy
+    session[:show_id] = @user_show.show.id
+    redirect_to user_show_path(@user_show)
   end
 
   private

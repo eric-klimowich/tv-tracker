@@ -1,7 +1,6 @@
-<h3>About <%= @show.title %>:</h3>
-Seasons: <%= @show.seasons %>
-Genre: <%= @show.genre %>
-</br>
+
+Seasons: <%= @show.seasons %><br>
+Genre: <%= @show.genre %></br>
 Starring: <%= @show.lead_actor %> <br>
 Status:
 <% if @show.status %>
@@ -11,3 +10,9 @@ Status:
 <% end %><br>
 Description: <%= @show.description %>
 <br><br>
+<h3>Available on:</h3>
+  <ul>
+    <% @show.platforms.each do |platform| %>
+      <li><%= link_to platform.name, platform_path(platform) %></li>
+    <% end %>
+  </ul>
