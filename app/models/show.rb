@@ -54,4 +54,41 @@ class Show < ApplicationRecord
     @average_rating
   end
 
+  # def update_platforms(show_params)
+  #   if show_params[:netflix] != self.netflix
+  #     if show_params[:netflix] == false
+  #       show_netflix = ShowPlatform.find_by(show_id: self.id)
+  #       show_netflix.destroy
+  #     else
+  #       ShowPlatform.create(show_id: self.id, platform_id: 1)
+  #     end
+  #   end
+  #   if show_params[:prime] != self.prime
+  #     if show_params[:prime] == false
+  #       show_prime = ShowPlatform.find_by(show_id: self.id)
+  #       show_prime.destroy
+  #     else
+  #       ShowPlatform.create(show_id: self.id, platform_id: 2)
+  #     end
+  #   end
+  #   if show_params[:hbo] != self.hbo
+  #     if show_params[:hbo] == false
+  #       show_hbo = ShowPlatform.find_by(show_id: self.id)
+  #       show_hbo.destroy
+  #     else
+  #       ShowPlatform.create(show_id: self.id, platform_id: 3)
+  #     end
+  #   end
+  #   if show_params[:hulu] != self.hulu
+  #     if show_params[:hulu] == false
+  #       show_hulu = ShowPlatform.find_by(show_id: self.id)
+  #       show_hulu.destroy
+  #     else
+  #       ShowPlatform.create(show_id: self.id, platform_id: 4)
+  #     end
+  #   end
+  # end
+
+            # <%= button_to "Edit Show Details", edit_show_path(@show), method: :get %>
+
 end

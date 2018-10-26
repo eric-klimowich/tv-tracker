@@ -49,6 +49,7 @@ class ShowsController < ApplicationController
   end
 
   def update
+    # @show.update_platforms(show_params)
     @show.update(show_params)
     if @show.valid?
       redirect_to show_path(@show)
