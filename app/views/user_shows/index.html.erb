@@ -4,7 +4,8 @@
     <div class="container">
 
       <% if @user.last_logged_title %>
-        <h1 class="jumbotron-heading">Currently Watching: <%= @user.last_logged_title %></h1>
+        <h1 class="jumbotron-heading">Currently Watching: <br>
+          <%= @user.last_logged_title %></h1>
 
         <hr class="my-4">
 
@@ -35,7 +36,7 @@
 
   <section>
     <h1 class="text-center"><%= @user.first_name %>'s Shows</h1>
-    <div class="d-flex p-2">
+
 
       <% if @saved_shows == [] %>
         <p>You aren't currently watching any shows.</p>
@@ -45,12 +46,13 @@
 
         <% @saved_shows.each do |show| %>
 
-          <div class="p-2 card justify-content-center">
+          <div class="p-2 card-saved justify-content-center">
             <% @user_show = UserShow.find_by(show_id: show.id, user_id: @user.id) %>
             <h3 class="card-text"><%= show.title %></h3>
-            <p class="card-text">Starring: <%= show.lead_actor %></p>
-            <p class="card-text"><%= show.description %></p>
-            <p class="card-text"><%= link_to "Check My Status", user_show_path(@user_show) %></p>
+            <p class="card-text"><%= "You're on Season #{@user_show.season}, Episode #{@user_show.season}" %></p>
+            <p class="card-text"><%= show.description %></p><br>
+            <p class="card-text"><%= link_to "Update My Status", edit_user_show_path(@user_show) %></p>
+            <p class="card-text"><%= link_to("Remove From Saved Shows", user_show_path(@user_show), method: :delete)%></p>
           </div>
 
         <% end %>
@@ -72,7 +74,7 @@
           <p>You have watched <%= @user.platform_total("Netflix") %> of <%= @user.total_watched %> shows on Netflix.</p>
           <p>You have watched <%= @user.platform_total("Prime") %> of <%= @user.total_watched %> shows on Prime.</p>
           <p>You have watched <%= @user.platform_total("HBO") %> of <%= @user.total_watched %> shows on HBO.</p>
-          <p>You have watched<%= @user.platform_total("Hulu") %> of <%= @user.total_watched %> shows on Hulu.</p>
+          <p>You have watched <%= @user.platform_total("Hulu") %> of <%= @user.total_watched %> shows on Hulu.</p>
 
         <% if @user.platform_total("Other") > 0 %>
           <p>You have watched <%= @user.platform_total("Other") %> of <%= @user.total_watched %> shows on an alternative platform.</p>
