@@ -4,6 +4,7 @@ class UserShowsController < ApplicationController
 
   def index
     @saved_shows = @user.shows
+
   end
 
   def show

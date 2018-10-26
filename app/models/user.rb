@@ -67,6 +67,14 @@ class User < ApplicationRecord
     @object
   end
 
+  def last_log_id
+    @object = nil
+    if self.user_shows[0]
+      @object = self.user_shows.last.id
+    end
+    @object
+  end
+
   # def shows_watched
   #   @shows = []
   #   self.user_shows.select { |s| s.status == "Watched" || s.status == "Watching" }.map do |show|
