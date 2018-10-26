@@ -16,7 +16,6 @@ Description: <%= @show.description %>
 <br><br>
 <h3>Available on:</h3>
     <% @show.platforms.each do |platform| %>
-      <%= platform.name %>
+      <%= platform.name %><br>
     <% end %>
   <br>
-  <%= button_to "Edit Show Details", edit_show_path(@show), method: :get %>

@@ -17,16 +17,14 @@
 
       <div class="d-flex flex-row justify-content-center flex-wrap">
         <div class="p-2 card-about justify-content-center">
-          <%= render 'user_shows/about' %>
+          <%= render 'user_shows/about' %><br>
+          <%= button_to "Add #{@show.title} to My Shows", new_user_show_path, method: :get %>
+          <%= button_to "Edit Show Details", edit_show_path(@show), method: :get %><br><br>
         </div>
       </div>
 
 
-      <%= button_to "Add #{@show.title} to My Shows", new_user_show_path, method: :get %>
-      <%= render 'buttons/my_shows' %>
-      <%= render 'buttons/all_shows' %>
-      <%= render 'buttons/my_account' %>
-      <%= render 'buttons/logout' %>
+
 
     <h1><%= "#{@show.title} Reviews" %> </h1><br>
     <% if @reviews[0] %>

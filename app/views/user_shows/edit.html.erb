@@ -23,15 +23,9 @@
       <div class="d-flex flex-row justify-content-center flex-wrap">
         <div class="justify-content-center">
           <%= render 'about' %>
+          <%= button_to "Remove From Watch List", user_show_path(@user_show), method: :delete %>
         </div>
       </div>
-
-
-      <%= button_to "Remove From Watch List", user_show_path(@user_show), method: :delete %>
-      <%= render 'buttons/my_shows' %>
-      <%= render 'buttons/all_shows' %>
-      <%= render 'buttons/my_account' %>
-      <%= render 'buttons/logout' %>
     </div>
     </section>
   </body>
