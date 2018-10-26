@@ -17,7 +17,7 @@
 
         <p class="lead text-muted">
 
-          <a href= <%="/user_shows/#{@user.last_logged_obj.show_id}"%>  class="btn btn-primary" role="button">UPDATE STATUS</a>
+          <a href= <%="/user_shows/#{@user.last_log_id}/edit"%>  class="btn btn-primary" role="button">UPDATE STATUS</a>
           <a href="/shows" class="btn btn-primary" role="button">FIND A NEW SHOW</a>
 
         </p>
@@ -52,6 +52,7 @@
             <p class="card-text"><%= "You're on Season #{@user_show.season}, Episode #{@user_show.season}" %></p>
             <p class="card-text"><%= show.description %></p><br>
             <p class="card-text"><%= link_to "Update My Status", edit_user_show_path(@user_show) %></p>
+            <p class="card-text"><%= link_to "View My Status Page", user_show_path(@user_show) %></p>
             <p class="card-text"><%= link_to("Remove From Saved Shows", user_show_path(@user_show), method: :delete)%></p>
           </div>
 
