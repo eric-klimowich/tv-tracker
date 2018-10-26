@@ -144,6 +144,22 @@
    border-radius: .25rem;
    justify-content: center;
  }
+ .card-rating {
+   position: relative;
+   display: flex;
+   padding: 10px;
+   margin: 10px;
+   width: 150px;
+   height: 80px;
+   -ms-flex-direction: column;
+   flex-direction: column;
+   word-wrap: break-word;
+   background-color: #eadab9;
+   background-clip: border-box;
+   border: 1px solid rgba(0,0,0,.125);
+   border-radius: .25rem;
+   justify-content: center;
+ }
  .card-platform {
    position: relative;
    display: flex;

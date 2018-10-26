@@ -7,14 +7,19 @@
   </div>
 <% end %>
 
+<div class="d-flex flex-row justify-content-center flex-wrap">
+  <div class="p-2 card-about justify-content-center text-center">
 <%= form_for @user_show do |f| %>
   <%= f.label :status %>
-  <%= f.select :status, [['',''],['Want to Watch','Want to Watch'],['Watching','Watching'],['Waiting for new episodes','Waiting for new episodes'],['Watched','Watched'],['Stopped Watching','Stopped Watching']] %>
+  <%= f.select :status, [['',''],['Want to Watch','Want to Watch'],['Watching','Watching'],['Waiting for new episodes','Waiting for new episodes'],['Watched','Watched'],['Stopped Watching','Stopped Watching']] %><br>
   <%= f.label :season %>
-  <%= f.number_field :season, within: 1..@show.seasons %>
+  <%= f.number_field :season, within: 1..@show.seasons %><br>
   <%= f.label :episode %>
-  <%= f.number_field :episode, within: 1..50 %>
+  <%= f.number_field :episode, within: 1..50 %><br>
   <%= f.label :watched_on %>
-  <%= f.select :watched_on, [['',''], ['Netflix','Netflix'],['Prime','Prime'],['HBO','HBO'],['Hulu','Hulu'], ['Other','Other']] %>
+  <%= f.select :watched_on, [['',''], ['Netflix','Netflix'],['Prime','Prime'],['HBO','HBO'],['Hulu','Hulu'], ['Other','Other']] %><br><br>
   <%= f.submit "Add/Update Show" %>
 <% end %>
+
+</div>
+</div>

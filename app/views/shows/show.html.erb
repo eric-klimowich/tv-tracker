@@ -18,7 +18,12 @@
       <div class="d-flex flex-row justify-content-center flex-wrap">
         <div class="p-2 card-about justify-content-center">
           <%= render 'user_shows/about' %><br>
-          <%= button_to "Add #{@show.title} to My Shows", new_user_show_path, method: :get %>
+
+          <% if @user.already_saved(@show.id) %>
+            <%= button_to "Check My Watch Status", user_show_path(@show.this_saved_show(@user)), method: :get %>
+          <% else %>
+            <%= button_to "Add #{@show.title} to My Shows", new_user_show_path, method: :get %>
+          <% end %>
           <%= button_to "Edit Show Details", edit_show_path(@show), method: :get %><br><br>
         </div>
       </div>
@@ -29,19 +34,17 @@
         <div class="d-flex flex-row justify-content-center flex-wrap">
           <div class="p-2 card-about justify-content-center">
           <% if @reviews[0] %>
-            <ul>
+
               <% @reviews.each do |review| %>
-              <li> Rating: <%= review.rating %><br>
-                  <%= review.content %>
-              </li>
+              Rating: <%= review.rating %><br>
+                  <%= review.content %><br><br>
+                </div>
               <% end %>
-            </ul>
+            </div>
           <% else %>
             No reviews yet - Be the first!
           <% end %>
           <%= button_to "Review #{@show.title}", new_review_path, method: :get %>
         </div>
-      </div>
-    </div>
     </section>
   </body>

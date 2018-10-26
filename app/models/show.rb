@@ -23,6 +23,10 @@ class Show < ApplicationRecord
     end
   end
 
+  def this_saved_show(user)
+    UserShow.find_by(show_id: self.id, user_id: user.id)
+  end
+
   # def popular_shows
   #   @popular_shows = []
   #   all_ids = []

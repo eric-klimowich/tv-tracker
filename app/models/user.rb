@@ -75,6 +75,14 @@ class User < ApplicationRecord
     @object
   end
 
+  def already_saved(show_id)
+    saved_shows = self.user_shows
+    saved_ids = saved_shows.map { |s| s.show_id }
+    saved_ids.include?(show_id)
+  end
+
+
+
   # def shows_watched
   #   @shows = []
   #   self.user_shows.select { |s| s.status == "Watched" || s.status == "Watching" }.map do |show|

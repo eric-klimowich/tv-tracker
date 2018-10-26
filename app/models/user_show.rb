@@ -12,4 +12,6 @@ class UserShow < ApplicationRecord
   # end
 
 
+
+
 end
