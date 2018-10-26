@@ -1,11 +1,36 @@
-<h1>All Platforms</h1>
+<body>
+  <section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">Shows by Platform</h1>
+        <hr class="my-4">
+        <p class="lead text-muted">
+        </p>
+    </div>
+  </section>
 
-<% @platforms.each do |platform| %>
-  <%= platform.name %><br>
-<% end %>
+  <section>
+    <div class="d-flex flex-row justify-content-center flex-wrap text-center">
+      <div class="justify-content-center">
+
+        <% @platforms.each do |platform| %>
+          <h4><%= platform.name %></h4><br>
+      <div class="d-flex flex-row justify-content-center flex-wrap">
+          <% platform.shows.each do |show| %>
+              <div class="p-2 card-platform justify-content-center">
+                    <p class="card-text"><%=link_to show.title, show_path(show) %></p>
+            </div>
+            <% end %>
+            </div>
+        <% end %>
+
+      </div>
+    </div>
+    </section>
+  </body>
+
+
+
+<h1></h1>
+
 
 <br><br>
-  <%= render 'buttons/my_shows' %>
-  <%= render 'buttons/all_shows' %>
-  <%= render 'buttons/my_account' %>
-  <%= render 'buttons/logout' %>
