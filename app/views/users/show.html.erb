@@ -1,33 +1,51 @@
-<h1> <%= @user.show_name %>'s Account </h1>
+<body>
+  <section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading"><%= @user.show_name %>'s Account </h1>
+        <hr class="my-4">
+          <p class="lead text-muted">
+            <%= "(#{@user.username})" %>
+          </p>
+    </div>
+  </section>
 
-<% if flash[:notice] %>
-  <div class="alert alert-success">
-    <strong>Success!</strong> <%= flash[:notice] + "!" %>
-  </div>
-<% end %>
-<br>
+  <section>
+    <div class="text-center">
 
-Location: <%= @user.location %>
-</br>
+          <% if flash[:notice] %>
+            <div class="alert alert-success">
+              <strong>Success!</strong> <%= flash[:notice] + "!" %>
+            </div>
+          <% end %>
+          <br>
 
-About Me: <%= @user.bio %>
+          Location: <%= @user.location %>
+          </br>
 
-<% if @user.shows %>
-  <ul>
-  <% @user.user_shows.each do |saved| %>
-    <li> <%= "#{saved.show.title}  (#{saved.status})"  %> </li>
-  <% end  %>
-  </ul>
-<% end %>
+          About Me: <%= @user.bio %><br><br>
 
-<%= button_to "Edit Account Info", edit_user_path, method: :get %>
-<%= button_to "Home", home_path, method: :get %>
-<%= button_to "All Shows", shows_path, method: :get %>
-<%= render 'buttons/my_shows' %>
-<%= render 'buttons/all_shows' %>
-<%= render 'buttons/my_account' %>
-<%= render 'buttons/logout' %>
-<% if session[:user_id] == @user.id %>
-  <!-- <%= button_to "Edit", edit_user_path(@user), method: :get %> -->
-  <%= button_to "Delete Account", user_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete your account?"} %>
-<% end %>
+          <% if @user.shows %>
+          Currently Watching:
+            <% @user.user_shows.each do |saved| %>
+              <%= "#{saved.show.title}  (Season #{saved.season}, Episode #{saved.episode})"  %><br>
+            <% end  %>
+
+          <% end %><br><br>
+
+          <%= button_to "Edit Account Info", edit_user_path, method: :get %>
+          <%= button_to "Home", home_path, method: :get %>
+          <%= button_to "All Shows", shows_path, method: :get %>
+          <%= render 'buttons/my_shows' %>
+          <%= render 'buttons/all_shows' %>
+          <%= render 'buttons/my_account' %>
+          <%= render 'buttons/logout' %>
+          <% if session[:user_id] == @user.id %>
+            <!-- <%= button_to "Edit", edit_user_path(@user), method: :get %> -->
+            <%= button_to "Delete Account", user_path(@user), method: :delete, data: { confirm: "Are you sure you want to delete your account?"} %>
+          <% end %>
+        </div>
+
+
+
+    </section>
+  </body>
