@@ -50,7 +50,7 @@
           <div class="p-2 card-saved justify-content-center">
             <% @user_show = UserShow.find_by(show_id: show.id, user_id: @user.id) %>
             <h3 class="card-text"><%= show.title %></h3>
-            <p class="card-text"><%= "You're on Season #{@user_show.season}, Episode #{@user_show.season}" %></p>
+            <p class="card-text"><%= "You're on Season #{@user_show.season}, Episode #{@user_show.episode}" %></p>
             <p class="card-text"><%= show.description %></p><br>
             <p class="card-text"><%= link_to "Update My Status", edit_user_show_path(@user_show) %></p>
             <p class="card-text"><%= link_to "View My Status Page", user_show_path(@user_show) %></p>
