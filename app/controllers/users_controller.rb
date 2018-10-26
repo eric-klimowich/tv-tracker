@@ -31,7 +31,12 @@ class UsersController < ApplicationController
 
   def update
     @user.update(user_params)
-    redirect_to user_path(@user)
+    if @user.valid?
+      redirect_to user_path(@user)
+    else
+      flash[:error] = @user.errors.full_messages
+      redirect_to edit_user_path
+    end
   end
 
   def destroy

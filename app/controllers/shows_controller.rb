@@ -50,7 +50,12 @@ class ShowsController < ApplicationController
 
   def update
     @show.update(show_params)
-    redirect_to show_path(@show)
+    if @show.valid?
+      redirect_to show_path(@show)
+    else
+      flash[:error] = @show.errors.full_messages
+      redirect_to edit_show_path
+    end
   end
 
   def destroy

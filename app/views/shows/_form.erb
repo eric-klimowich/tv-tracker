@@ -1,9 +1,10 @@
 <% if flash[:error] %>
-  Show could not be created because of the following error(s):
-  <br>
+<div class="alert alert-danger">
+  <strong>Uh oh! It appears one or more required fields was left blank. Please try again.</strong><br>
   <% flash[:error].each do |error| %>
     <%= error %><br>
   <% end %>
+  </div>
 <% end %>
 
 <%= form_for @show do |f| %>

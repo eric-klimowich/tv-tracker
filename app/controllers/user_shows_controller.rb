@@ -34,7 +34,12 @@ class UserShowsController < ApplicationController
 
   def update
     @user_show.update(user_show_params)
-    redirect_to user_show_path(@user_show)
+    if @user_show.valid?
+      redirect_to user_show_path(@user_show)
+    else
+      flash[:error] = @user_show.errors.full_messages
+      redirect_to edit_user_show_path
+    end
   end
 
   def destroy

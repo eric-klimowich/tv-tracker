@@ -20,17 +20,26 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   </head>
 
-<body style="background-image: image-url('tv-bars.jpg')">
+<body class="home-bg">
+  <nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand">TV Tracker</a>
+      </div>
+    </div>
+  </nav>
 
   <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column text-center">
 
-    <main role="main" class="inner cover">
-      <h1 class="cover-heading">TV Show Tracker</h1>
-      <p class="lead">A better way to binge shows.</p>
-    </main>
-
     <div class="container">
       <div class="jumbotron">
+
+    <main role="main" class="inner cover">
+      <h1 class="cover-heading">TV Show Tracker</h1>
+      <p class="lead">Track your progress watching any show.</p>
+    </main>
+
+
         <h2>Sign In</h2>
         <% if flash[:error] %>
           <%= flash[:error] %><br><br>
@@ -40,14 +49,18 @@
           <%= text_field_tag :username %>
           <%= label_tag :password %>
           <%= password_field_tag :password %>
-          <%= submit_tag "Login", {:style => "background-color:powderblue" }%>
+          <%= submit_tag "Login" %>
         <% end  %>
-      </div>
-    </div>
+
 
     <br><br>
-    <h3>New to TV Tracker?</h3>
-    <%= button_to "Sign Up", new_user_path, method: :get %>
+    <div class="">
+      <h3>New to TV Tracker?</h3>
+      <%= button_to "Sign Up", new_user_path, method: :get %>
+    </div>
+  </div>
+</div>
+
 
   </div>
 

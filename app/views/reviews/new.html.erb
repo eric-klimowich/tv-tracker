@@ -1,11 +1,12 @@
 <h1><%= @user.first_name %>'s Review for <%= @show.title %></h1>
 
 <% if flash[:error] %>
-  Review could not be created because of the following error(s):
-  <br>
-  <% flash[:error].each do |error| %>
-    <%= error %><br>
-  <% end %>
+  <div class="alert alert-danger">
+    <strong>Uh oh! It appears one or more required fields was left blank. Please try again.</strong><br>
+    <% flash[:error].each do |error| %>
+      <%= error %><br>
+    <% end %>
+    </div>
 <% end %>
 
 <%= form_for @review do |f| %>

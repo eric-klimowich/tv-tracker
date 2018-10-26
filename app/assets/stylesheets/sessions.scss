@@ -1919,11 +1919,41 @@ html {
   }
 }
 
-// body {
-//   background-image: image-url('tv-bars.jpg');
-//   background-repeat: no-repeat;
-//   background-size: 100%;
-// }
+.home-bg {
+  background-image: image-url('tv-collage.jpg');
+  background-repeat: no-repeat;
+  background-size: 100%;
+}
 
+#content {
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    width: 100px;
+    height: 100px;
+    overflow: scroll;
+    border: 1px solid black;
+}
 
+#frame {
+    position: absolute;
+    top: 45px;
+    left: 45px;
+    width: 105px;
+    height: 105px;
+    border: 5px solid red;
+}
+
+.box1 {
+    width: 300px;
+    height: 100px;
+    border: 1px solid blue;
+}
+
+.box2 {
+    width: 300px;
+    height: 100px;
+    padding: 50px;
+    border: 1px solid red;
+}
 /*# sourceMappingURL=bootstrap-grid.css.map */

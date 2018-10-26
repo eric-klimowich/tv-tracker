@@ -1,7 +1,10 @@
 <% if flash[:error] %>
-  <% flash[:error].each do |error| %>
-    <%= error %><br>
-  <% end %>
+  <div class="alert alert-danger">
+    <strong>Uh oh! It appears one or more required fields was left blank. Please try again.</strong><br>
+    <% flash[:error].each do |error| %>
+      <%= error %><br>
+    <% end %>
+  </div>
 <% end %>
 
 <%= form_for @user_show do |f| %>
