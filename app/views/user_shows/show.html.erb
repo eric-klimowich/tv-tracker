@@ -14,7 +14,8 @@
   <section>
     <div class="text-center">
       <h1><%= @user.first_name %>'s Viewing Status: </h1><br>
-
+      <div class="d-flex flex-row justify-content-center flex-wrap">
+        <div class="p-2 card-about justify-content-center">
           <%= @user_show.status %><br>
           <% if @user_show.status == "Watching" %>
             Season: <%= @user_show.season %><br>
@@ -29,6 +30,9 @@
           <%= button_to "Update My Status", edit_user_show_path(@user_show), method: :get %>
           <%= button_to "Remove From Saved Shows", user_show_path(@user_show), method: :delete %>
 <br><br>
+  </div>
+</div>
+    <h3><%= "About #{@show.title}" %></h3>
       <div class="d-flex flex-row justify-content-center flex-wrap">
         <div class="p-2 card-about justify-content-center">
           <%= render 'user_shows/about' %>
@@ -39,6 +43,8 @@
 
       <% if @review %>
         <h3><%= "Your review of #{@show.title}:" %></h3>
+        <div class="d-flex flex-row justify-content-center flex-wrap">
+          <div class="p-2 card-about justify-content-center">
         Rating: <%= @review.rating %><br>
         <%= @review.content %>
         <%= button_to "Delete Review for #{@user_show.show.title}", review_path(@review), method: :delete %>
@@ -47,6 +53,8 @@
         <h3> <%= "You haven't reviewed #{@show.title} yet!" %> </h3>
         <%= button_to "Review #{@user_show.show.title}", new_review_path, method: :get %>
       <% end %>
+      </div>
+      </div>
 
       <br><br>
 
