@@ -5,7 +5,7 @@
     <div class="container">
 
       <% if @user.last_logged_title %>
-        <h1 class="jumbotron-heading">Currently Watching: <br>
+        <h1 class="jumbotron-heading">Show Last Logged: <br>
           <%= @user.last_logged_title %></h1>
 
         <hr class="my-4">
@@ -55,7 +55,17 @@
           <div class="p-2 card-saved justify-content-center">
             <% @user_show = UserShow.find_by(show_id: show.id, user_id: @user.id) %>
             <h3 class="card-text"><%= show.title %></h3>
-            <p class="card-text"><%= "You're on Season #{@user_show.season}, Episode #{@user_show.episode}" %></p>
+            <% if @user_show.status == "Watched" %>
+              <p class="card-text">You've watched this entire series!</p>
+            <% elsif @user_show.status == "Watching" %>
+              <p class="card-text"><%= "You're on Season #{@user_show.season}, Episode #{@user_show.episode}" %></p>
+            <% elsif @user_show.status == "Want to Watch" %>
+              <p class="card-text">You haven't started watching this show yet. What's the holdup?</p>
+            <% elsif @user_show.status == "Waiting for new episodes" %>
+              <p class="card-text">You are all caught up on this series. When are they gonna wrap the next season already?!</p>
+            <% else @user_show.status == "Stopped Watching" %>
+              <p class="card-text">You have abandoned watching this show. Terrible.</p>
+            <% end %>
             <p class="card-text"><%= show.description %></p><br>
             <p class="card-text"><%= link_to "Update My Status", edit_user_show_path(@user_show) %></p>
             <p class="card-text"><%= link_to "View My Status Page", user_show_path(@user_show) %></p>
