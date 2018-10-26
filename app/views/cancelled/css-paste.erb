@@ -1,0 +1,45 @@
+
+<body>
+  <section class="jumbotron text-center">
+    <div class="container">
+
+JUMBO HEADER
+        <h1 class="jumbotron-heading">Currently Watching: <%= @user.last_logged_title %></h1>
+
+        <hr class="my-4">
+
+        <p class="lead text-muted">
+JUMBO SUBTEXT
+          <%= "Season #{@user.last_logged_season}    -    Episode #{@user.last_logged_episode}" %>
+
+        </p>
+
+        <p class="lead text-muted">
+BUTTONS
+          <a href= <%="/user_shows/#{@user.last_logged_obj.show_id}"%>  class="btn btn-primary" role="button">UPDATE STATUS</a>
+          <a href="/shows" class="btn btn-primary" role="button">FIND A NEW SHOW</a>
+
+        </p>
+
+    </div>
+  </section>
+
+  <section>
+SECTION HEADER
+    <div class="d-flex p-2">
+      <div class="d-flex flex-row justify-content-center flex-wrap">
+        <div class="p-2 card">
+          <p>
+CARD ITEM GOES HERE
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="text-center">
+BOTTOM SECTION GOES HERE
+    </div>
+  </section>
+</body>
