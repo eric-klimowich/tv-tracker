@@ -38,13 +38,13 @@
               <% @reviews.each do |review| %>
               Rating: <%= review.rating %><br>
                   <%= review.content %><br><br>
-                </div>
               <% end %>
-            </div>
           <% else %>
             No reviews yet - Be the first!
           <% end %>
           <%= button_to "Review #{@show.title}", new_review_path, method: :get %>
+        </div>
+        </div>
         </div>
     </section>
   </body>
