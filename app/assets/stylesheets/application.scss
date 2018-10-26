@@ -160,6 +160,22 @@
    border-radius: .25rem;
    justify-content: center;
  }
+ .card-stats {
+   position: relative;
+   display: flex;
+   padding: 25px;
+   margin: 10px;
+   width: 400px;
+   height: 500px;
+   -ms-flex-direction: column;
+   flex-direction: column;
+   word-wrap: break-word;
+   background-color: #CBDDF4;
+   background-clip: border-box;
+   border: 1px solid rgba(0,0,0,.125);
+   border-radius: .25rem;
+   justify-content: center;
+ }
 
  html {
    box-sizing: border-box;

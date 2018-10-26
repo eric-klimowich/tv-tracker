@@ -40,11 +40,11 @@
     <h1 class="text-center"><%= @user.first_name %>'s Shows</h1>
 
 
+    <div class="d-flex flex-row justify-content-center flex-wrap">
       <% if @saved_shows == [] %>
         <p>You aren't currently watching any shows.</p>
       <% else %>
 
-      <div class="d-flex flex-row justify-content-center flex-wrap">
 
         <% @saved_shows.each do |show| %>
 
@@ -67,6 +67,8 @@
   <section>
     <div class="text-center">
       <h1><%= @user.first_name %>'s Stats</h1><br>
+      <div class="d-flex flex-row justify-content-center flex-wrap">
+        <div class="p-2 card-stats justify-content-center">
         <h3>- Currently Watching -</h3>
         <p>You are currently watching <%= @user.total_watching %> of your <%= @user.total_saved %> saved shows.</p><br>
 
@@ -83,6 +85,8 @@
           <p>You have watched <%= @user.platform_total("Other") %> of <%= @user.total_watched %> shows on an alternative platform.</p>
         <% end %><br><br>
 
+    </div>
+    </div>
     </div>
   </section>
 </div>

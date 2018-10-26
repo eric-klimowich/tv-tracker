@@ -25,20 +25,23 @@
 
 
 
-
-    <h1><%= "#{@show.title} Reviews" %> </h1><br>
-    <% if @reviews[0] %>
-      <ul>
-        <% @reviews.each do |review| %>
-        <li> Rating: <%= review.rating %><br>
-            <%= review.content %>
-        </li>
-        <% end %>
-      </ul>
-    <% else %>
-      No reviews yet - Be the first!
-    <% end %>
-    <%= button_to "Review #{@show.title}", new_review_path, method: :get %>
+          <h1><%= "#{@show.title} Reviews" %> </h1><br>
+        <div class="d-flex flex-row justify-content-center flex-wrap">
+          <div class="p-2 card-about justify-content-center">
+          <% if @reviews[0] %>
+            <ul>
+              <% @reviews.each do |review| %>
+              <li> Rating: <%= review.rating %><br>
+                  <%= review.content %>
+              </li>
+              <% end %>
+            </ul>
+          <% else %>
+            No reviews yet - Be the first!
+          <% end %>
+          <%= button_to "Review #{@show.title}", new_review_path, method: :get %>
+        </div>
+      </div>
     </div>
     </section>
   </body>
