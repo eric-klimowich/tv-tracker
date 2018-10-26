@@ -1,25 +1,47 @@
 
-<h1> <%= @show.title %> </h1>
+<body>
+  <section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading"><%= @show.title %></h1>
+        <hr class="my-4">
+          <p class="lead text-muted">
+            <%= "(#{@show.genre})" %>
 
-<%= render 'user_shows/about' %>
-<%= button_to "Add #{@show.title} to My Shows", new_user_show_path, method: :get %>
-<%= render 'buttons/my_shows' %>
-<%= render 'buttons/all_shows' %>
-<%= render 'buttons/my_account' %>
-<%= render 'buttons/logout' %>
+          </p>
 
-<br><br>
+    </div>
+  </section>
 
-<h3> <%= "#{@show.title} Reviews" %> </h3>
-<% if @reviews[0] %>
-  <ul>
-    <% @reviews.each do |review| %>
-    <li> Rating: <%= review.rating %><br>
-        <%= review.content %>
-    </li>
+  <section>
+    <div class="text-center">
+      <h1><%= "About #{@show.title}" %> </h1><br>
+
+      <div class="d-flex flex-row justify-content-center flex-wrap">
+        <div class="p-2 card-about justify-content-center">
+          <%= render 'user_shows/about' %>
+        </div>
+      </div>
+
+
+      <%= button_to "Add #{@show.title} to My Shows", new_user_show_path, method: :get %>
+      <%= render 'buttons/my_shows' %>
+      <%= render 'buttons/all_shows' %>
+      <%= render 'buttons/my_account' %>
+      <%= render 'buttons/logout' %>
+
+    <h1><%= "#{@show.title} Reviews" %> </h1><br>
+    <% if @reviews[0] %>
+      <ul>
+        <% @reviews.each do |review| %>
+        <li> Rating: <%= review.rating %><br>
+            <%= review.content %>
+        </li>
+        <% end %>
+      </ul>
+    <% else %>
+      No reviews yet - Be the first!
+      <%= button_to "Review #{@show.title}", new_review_path, method: :get %>
     <% end %>
-  </ul>
-<% else %>
-  No reviews yet - Be the first!
-  <%= button_to "Review #{@show.title}", new_review_path, method: :get %>
-<% end %>
+    </div>
+    </section>
+  </body>

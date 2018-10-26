@@ -15,10 +15,8 @@ Status:
 Description: <%= @show.description %>
 <br><br>
 <h3>Available on:</h3>
-  <ul>
     <% @show.platforms.each do |platform| %>
-      <li><%= platform.name %></li>
+      <%= platform.name %>
     <% end %>
-  </ul>
   <br>
   <%= button_to "Edit Show Details", edit_show_path(@show), method: :get %>
