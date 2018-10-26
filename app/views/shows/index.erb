@@ -1,52 +1,58 @@
-
 <body>
   <section class="jumbotron text-center">
     <div class="container">
-        <h1 class="jumbotron-heading">All Shows</h1>
+      <h1 class="jumbotron-heading">All Shows</h1>
     </div>
   </section>
 
   <section>
-    <div class="container text-center">
-        <%= form_tag(shows_path, method: :get) do %>
-          <%= label_tag "Search Show Name" %>
-          <%= text_field_tag :search, params[:search] %>
-        <%= submit_tag "Search" %>
+        <div class="text-center">
 
-        <% if @shows == "no results" %>
-            <p>That show doesn't exist yet.</p>
+          <%= form_tag(shows_path, method: :get) do %>
+          <p><label>  Search Show Name</label>
+            <%= text_field_tag :search, params[:search] %>
+            <%= submit_tag 'Search' %>
+            <% end %>
+
+            <% if @shows == "no results" %>
+            That show doesn't exist yet.
             <%= button_to "Back to all shows", shows_path, method: :get %>
             <%= button_to "Create a new show", new_show_path, method: :get %>
-        <% else %>
+            <% elsif @shows == "popular" %>
+        </div>
+
 
       <div class="d-flex p-2">
+          <% else %>
         <div class="d-flex flex-row justify-content-center flex-wrap">
+
           <% @shows.each do |show| %>
-              <div class="p-2 card">
-                <p>
-                  <%= "#{show.title}", show_path(show) %>
-                  <%= "Starring:#{show.lead_actor}" %>
-                  <%= "#{show.description}" %>
-                  <%= link_to "View Show", show_path(show) %>
-                </p>
-              </div>
+
+              <div class="p-2 card justify-content-center">
+                  <h3 class="card-text"><%= show.title %></h3>
+                    <p class="card-text">Starring: <%= show.lead_actor %></p>
+                    <p class="card-text"><%= show.description %></p>
+                    <p class="card-text"><%= link_to "View Show", show %></p>
+
             </div>
+            <% end %>
+
+          <!-- took out the add to shows button from this page... can we find a way to pass through an identity? -->
+          </div>
           <% end %>
-          <% end %>
+          <br><br>
+
+          <h2>Don't see your show?</h2>
+          <%= button_to "Create Show", new_show_path, method: :get %>
+
+          <%= render 'buttons/my_shows' %>
+          <%= render 'buttons/all_shows' %>
+          <%= render 'buttons/my_account' %>
+          <%= render 'buttons/logout' %>
+
         </div>
+
       </div>
-
-  </section>
-
-  <section>
-    <div class="text-center">
-      <h2>Don't see your show?</h2>
-      <%= button_to "Create Show", new_show_path, method: :get %>
-
-      <%= render "buttons/my_shows" %>
-      <%= render "buttons/all_shows" %>
-      <%= render "buttons/my_account" %>
-      <%= render "buttons/logout" %>
     </div>
-  </section>
-</body>
+
+    </section>
