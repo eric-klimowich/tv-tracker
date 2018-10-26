@@ -38,7 +38,8 @@ class User < ApplicationRecord
   def last_logged_title
     @result = nil
     if self.user_shows[0]
-      @result = self.user_shows.last.show.title
+      sorted = self.user_shows.sort_by { |m| [m.created_at, m.updated_at].max }
+      @result = sorted.reverse[0].show.title
     end
     @result
   end
@@ -46,7 +47,8 @@ class User < ApplicationRecord
   def last_logged_season
     @result = nil
     if self.user_shows[0]
-      @result = self.user_shows.last.season
+      sorted = self.user_shows.sort_by { |m| [m.created_at, m.updated_at].max }
+      @result = sorted.reverse[0].season
     end
     @result
   end
@@ -54,7 +56,8 @@ class User < ApplicationRecord
   def last_logged_episode
     @result = nil
     if self.user_shows[0]
-      @result = self.user_shows.last.episode
+      sorted = self.user_shows.sort_by { |m| [m.created_at, m.updated_at].max }
+      @result = sorted.reverse[0].episode
     end
     @result
   end
@@ -62,7 +65,8 @@ class User < ApplicationRecord
   def last_logged_obj
     @object = nil
     if self.user_shows[0]
-      @object = self.user_shows.last
+      sorted = self.user_shows.sort_by { |m| [m.created_at, m.updated_at].max }
+      @object = sorted.reverse[0]
     end
     @object
   end
@@ -70,7 +74,9 @@ class User < ApplicationRecord
   def last_log_id
     @object = nil
     if self.user_shows[0]
-      @object = self.user_shows.last.id
+      sorted = self.user_shows.sort_by { |m| [m.created_at, m.updated_at].max }
+      @object = sorted.reverse[0].id
+      #search user's user_show table data for most recent "updated_at"
     end
     @object
   end
@@ -81,6 +87,9 @@ class User < ApplicationRecord
     saved_ids.include?(show_id)
   end
 
+  def saved_shows
+    @saved_shows = self.shows
+  end
 
 
   # def shows_watched

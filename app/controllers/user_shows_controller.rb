@@ -3,8 +3,6 @@ class UserShowsController < ApplicationController
   before_action :find_user
 
   def index
-    @saved_shows = @user.shows
-
   end
 
   def show

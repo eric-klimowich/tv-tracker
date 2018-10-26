@@ -5,7 +5,7 @@
         <hr class="my-4">
         <p class="lead text-muted">
           <% if @user_show.status == "Watching" %>
-          <%= "You're on Season #{@user.last_logged_season}    -    Episode #{@user.last_logged_episode}" %>
+          <%= "You're on Season #{@user_show.season}    -    Episode #{@user_show.episode}" %>
           <% end %>
         </p>
     </div>

@@ -40,12 +40,12 @@
 
 
     <div class="d-flex flex-row justify-content-center flex-wrap">
-      <% if @saved_shows == [] %>
+      <% if @user.saved_shows == [] %>
         <p>You aren't currently watching any shows.</p>
       <% else %>
 
 
-        <% @saved_shows.each do |show| %>
+        <% @user.saved_shows.each do |show| %>
 
           <div class="p-2 card-saved justify-content-center">
             <% @user_show = UserShow.find_by(show_id: show.id, user_id: @user.id) %>
