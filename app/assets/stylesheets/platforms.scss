@@ -17,6 +17,89 @@
   width: device-width;
 }
 
+.jumbotron {
+    padding-bottom: 50px;
+    margin-bottom: 2rem;
+    background-color: #94adb1;
+    border-radius: .3rem;
+}
+
+.jumbotron-heading, h1 {
+    font-weight: 500;
+    font-size: 30px;
+}
+
+.btn {
+    display: inline-block;
+    font-weight: 400;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    user-select: none;
+    width: 250px;
+    border: 1px solid transparent;
+    padding: .375rem .75rem;
+    font-size: .75rem;
+    line-height: 1.5;
+    margin: .5rem;
+    border-radius: .25rem;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.btn-primary, a {
+  color: #ba933f;
+  font-size: .75em;
+  font-weight: 600px;
+  text-decoration: none;
+  background-color: #fff;
+  border-color: #fff;
+}
+
+a {
+  color: #ba933f;
+  text-decoration: none;
+  background-color: transparent;
+  font-size: 1em;
+  letter-spacing: 1.5px;
+  font-weight: 600px;
+  text-decoration: none;
+}
+
+
+
+.card {
+  position: relative;
+  display: flex;
+  padding: 25px;
+  margin: 10px;
+  width: 400px;
+  height: 200px;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-color: #eeeeee;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  justify-content: space-between;
+}
+.card-about {
+  position: relative;
+  display: flex;
+  padding: 25px;
+  margin: 10px;
+  width: 450px;
+  height: auto;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  word-wrap: break-word;
+  background-color: #eeeeee;
+  background-clip: border-box;
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: .25rem;
+  justify-content: space-between;
+}
+
 html {
   box-sizing: border-box;
   -ms-overflow-style: scrollbar;

@@ -1,11 +1,31 @@
-<h1><%= @show.title %></h1>
+<body>
+  <section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading"><%= @show.title %></h1>
+        <hr class="my-4">
+        <p class="lead text-muted">
+          <% if @user_show.status == "Watching" %>
+          <%= "You're on Season #{@user.last_logged_season}    -    Episode #{@user.last_logged_episode}" %>
+          <% end %>
+        </p>
+    </div>
+  </section>
 
-<%= render 'form' %>
-<br>
-<%= render 'about' %>
+  <section>
+    <div class="d-flex flex-row justify-content-center flex-wrap">
+      <div class="justify-content-center">
+        <%= render 'form' %>
+      </div>
+    </div>
 
-<%= button_to "Remove From Watch List", user_show_path(@user_show), method: :delete %>
-<%= render 'buttons/my_shows' %>
-<%= render 'buttons/all_shows' %>
-<%= render 'buttons/my_account' %>
-<%= render 'buttons/logout' %>
+    <div class="text-center">
+      <h1><%= "About #{@show.title}" %> </h1><br>
+      <div class="d-flex flex-row justify-content-center flex-wrap">
+        <div class="justify-content-center">
+          <%= render 'about' %>
+          <%= button_to "Remove From Watch List", user_show_path(@user_show), method: :delete %>
+        </div>
+      </div>
+    </div>
+    </section>
+  </body>

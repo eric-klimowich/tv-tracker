@@ -1,5 +1,4 @@
-
-<body>
+<body class="home-bg">
   <section class="jumbotron text-center">
     <div class="container">
       <h1 class="jumbotron-heading">All Shows</h1>
@@ -7,8 +6,6 @@
   </section>
 
   <section>
-    <div class="column_only">
-      <div class="container">
         <div class="text-center">
 
           <%= form_tag(shows_path, method: :get) do %>
@@ -22,59 +19,31 @@
             <%= button_to "Back to all shows", shows_path, method: :get %>
             <%= button_to "Create a new show", new_show_path, method: :get %>
             <% elsif @shows == "popular" %>
-
-
         </div>
-      </div>
-
-      <div class="album py-5 bg-light">
-        <div class="container">
 
 
-
+      <div class="d-flex p-2">
           <% else %>
+        <div class="d-flex flex-row justify-content-center flex-wrap">
 
           <% @shows.each do |show| %>
 
-
-          <div class="row">
-            <div class="col-md-4">
-              <div class="card mb-4 box-shadow">
-                <div class="card-body">
-
-
-                  <p class="card-text"><%= link_to show.title, show %></p>
+              <div class="p-2 card justify-content-center">
+                  <h3 class="card-text"><%= show.title %></h3>
                     <p class="card-text">Starring: <%= show.lead_actor %></p>
                     <p class="card-text"><%= show.description %></p>
+                    <p class="card-text"><%= link_to "View Show", show %></p>
 
-                    <div class="d-flex justify-content-between align-items-center">
-                      <div class="btn-group">
-                        <button type="button" class="btn btn-sm btn-outline-secondary">View</button>
-                        <button type="button" class="btn btn-sm btn-outline-secondary">Edit</button>
-                      </div>
-                      <small class="text-muted">9 mins</small>
-
-
-
-                  </div>
-                </div>
-              </div>
             </div>
-          </div>
+            <% end %>
 
           <!-- took out the add to shows button from this page... can we find a way to pass through an identity? -->
-          <% end %>
-          <%= button_to "Back to all shows", shows_path, method: :get %>
+          </div>
           <% end %>
           <br><br>
 
           <h2>Don't see your show?</h2>
           <%= button_to "Create Show", new_show_path, method: :get %>
-
-          <%= render 'buttons/my_shows' %>
-          <%= render 'buttons/all_shows' %>
-          <%= render 'buttons/my_account' %>
-          <%= render 'buttons/logout' %>
 
         </div>
 

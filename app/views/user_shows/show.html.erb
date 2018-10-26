@@ -1,38 +1,55 @@
-<h1><%= @show.title %></h1>
+<body>
+  <section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading"><%= @show.title %></h1>
+        <hr class="my-4">
+          <p class="lead text-muted">
+            <%= "(#{@show.genre})" %>
 
-<%= @user.first_name %>'s Viewing Status: <%= @user_show.status %><br>
-<% if @user_show.status == "Watching" %>
-  Season: <%= @user_show.season %><br>
-  Episode: <%= @user_show.episode %>
-<% elsif @user_show.status == "Watched"%>
-  You watched all <%= @show.seasons %> seasons!
-<% else %>
-  This show has <%= @show.seasons %> seasons.
-<% end %>
+          </p>
 
-<br>
-<%= button_to "Update My Watch Info", edit_user_show_path(@user_show), method: :get %>
-<%= button_to "Remove From Watch List", user_show_path(@user_show), method: :delete %>
+    </div>
+  </section>
 
+  <section>
+    <div class="text-center">
+      <h1><%= @user.first_name %>'s Viewing Status: </h1><br>
+
+          <%= @user_show.status %><br>
+          <% if @user_show.status == "Watching" %>
+            Season: <%= @user_show.season %><br>
+            Episode: <%= @user_show.episode %>
+          <% elsif @user_show.status == "Watched"%>
+            You watched all <%= @show.seasons %> seasons!
+          <% else %>
+            This show has <%= @show.seasons %> seasons.
+          <% end %>
+          <br><br>
+
+          <%= button_to "Update My Status", edit_user_show_path(@user_show), method: :get %>
+          <%= button_to "Remove From Saved Shows", user_show_path(@user_show), method: :delete %>
 <br><br>
+      <div class="d-flex flex-row justify-content-center flex-wrap">
+        <div class="p-2 card-about justify-content-center">
+          <%= render 'user_shows/about' %>
+        </div>
+      </div>
 
-<% if @review %>
-  <h3><%= "Your review of #{@show.title}:" %></h3>
-  Rating: <%= @review.rating %><br>
-  <%= @review.content %>
-  <%= button_to "Delete Review for #{@user_show.show.title}", review_path(@review), method: :delete %>
+      <br><br>
 
-<% else %>
-  <h3> <%= "You haven't reviewed #{@show.title} yet!" %> </h3>
-  <%= button_to "Review #{@user_show.show.title}", new_review_path, method: :get %>
-<% end %>
+      <% if @review %>
+        <h3><%= "Your review of #{@show.title}:" %></h3>
+        Rating: <%= @review.rating %><br>
+        <%= @review.content %>
+        <%= button_to "Delete Review for #{@user_show.show.title}", review_path(@review), method: :delete %>
 
-<br><br>
+      <% else %>
+        <h3> <%= "You haven't reviewed #{@show.title} yet!" %> </h3>
+        <%= button_to "Review #{@user_show.show.title}", new_review_path, method: :get %>
+      <% end %>
 
-<h3> About <%= @show.title %> </h3>
-  <%= render 'about' %>
+      <br><br>
 
-  <%= render 'buttons/my_shows' %>
-  <%= render 'buttons/all_shows' %>
-  <%= render 'buttons/my_account' %>
-  <%= render 'buttons/logout' %>
+    </div>
+    </section>
+  </body>
