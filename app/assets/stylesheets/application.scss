@@ -192,6 +192,22 @@
    border-radius: .25rem;
    justify-content: center;
  }
+ .card-no-shows {
+   position: relative;
+   display: flex;
+   padding: 25px;
+   margin: 10px;
+   width: 400px;
+   height: 60px;
+   -ms-flex-direction: column;
+   flex-direction: column;
+   word-wrap: break-word;
+   background-color: #B2CEDF;
+   background-clip: border-box;
+   border: 1px solid rgba(0,0,0,.125);
+   border-radius: .25rem;
+   justify-content: center;
+ }
 
  html {
    box-sizing: border-box;
