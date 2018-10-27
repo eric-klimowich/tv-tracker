@@ -27,6 +27,23 @@ class Show < ApplicationRecord
     UserShow.find_by(show_id: self.id, user_id: user.id)
   end
 
+  def also_liked
+    top_reviews = self.reviews.select {|r| r.rating > 3}
+    reviewers_who_liked = top_reviews.map {|r| r.user}
+    reccommendations = []
+
+    reviewers_who_liked.each do |reviewer|
+      reviewer.shows_liked.each do |show|
+        if show != self
+          reccommendations << show.title
+        end
+      end
+    end
+    recommendations
+  end
+
+
+
   # def popular_shows
   #   @popular_shows = []
   #   all_ids = []
