@@ -91,6 +91,11 @@ class User < ApplicationRecord
     @saved_shows = self.shows
   end
 
+  def shows_liked
+    good_reviews = user.reviews.select {|r| r.rating > 3}
+    good_shows = good_reviews.map {|r| r.show}
+  end
+
 
   # def shows_watched
   #   @shows = []
